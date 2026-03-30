@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Pedido {
     private int id;
     private String data;
@@ -52,7 +53,14 @@ public class Pedido {
         this.produtos.remove(produto);
     }
 
-    
+    public double calcularTotal() {
+        double total = 0;
+        for (Produto p : produtos) {
+            total += p.getPreco();
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
         return "Pedido{" +
@@ -60,6 +68,7 @@ public class Pedido {
                 ", data=" + data +
                 ", cliente=" + cliente.getNome() +
                 ", produtos=" + produtos +
+                ", total=" + calcularTotal() +
                 '}';
     }
 }
