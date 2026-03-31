@@ -17,7 +17,7 @@ public class Deletar {
         // Busca o cliente pelo nome
         Query q = manager.query();
         q.constrain(Cliente.class);
-        q.descend("nome").constrain("joao").like();
+        q.descend("nome").constrain("João").like();
         List<Cliente> resultados = q.execute();
 
         if (resultados.size() > 0) {
@@ -40,7 +40,6 @@ public class Deletar {
         }
 
         Util.desconectar();
-        System.out.println("\n\n aviso: feche sempre o plugin OME antes de executar aplicação");
     }
 
     public static void main(String[] args) {

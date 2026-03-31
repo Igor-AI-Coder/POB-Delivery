@@ -52,7 +52,6 @@ public class Alterar {
         }
 
         Util.desconectar();
-        System.out.println("\n\n aviso: feche sempre o plugin OME antes de executar aplicação");
     }
 
     public static void main(String[] args) {
