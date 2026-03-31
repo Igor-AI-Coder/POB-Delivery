@@ -39,7 +39,7 @@ public class Alterar {
                 cliente.removerPedido(pedidoParaRemover);
                 manager.store(cliente);
                 manager.delete(pedidoParaRemover);
-                System.out.println("Pedido removido por ficar orfão no sistema");
+                
                 
                 manager.commit();
                 System.out.println("O pedido foi removido do cliente com sucesso.");
