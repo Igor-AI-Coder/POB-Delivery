@@ -19,7 +19,7 @@ public class Alterar {
 
         Query q = manager.query();
         q.constrain(Cliente.class);
-        q.descend("nome").constrain("joao").like();
+        q.descend("nome").constrain("João").like();
         List<Cliente> resultados = q.execute();
 
         if (resultados.size() > 0) {
