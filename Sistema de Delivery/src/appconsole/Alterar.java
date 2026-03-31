@@ -14,7 +14,7 @@ public class Alterar {
         Util.conectar();
         manager = Util.getManager();
 
-        // remover pedido de ID 1 do cliente "joao"
+        // remover pedido de ID 1 do cliente "João"
 
         Query q = manager.query();
         q.constrain(Cliente.class);
@@ -39,10 +39,9 @@ public class Alterar {
                 cliente.removerPedido(pedidoParaRemover);
                 manager.store(cliente);
                 manager.delete(pedidoParaRemover);
-                
-                
                 manager.commit();
-                System.out.println("O pedido foi removido do cliente com sucesso.");
+                
+                System.out.println("O pedido foi desvinculado do cliente com sucesso.");
                 System.out.println(cliente);
             } else {
                 System.out.println("Pedido nao encontrado na lista deste cliente");
