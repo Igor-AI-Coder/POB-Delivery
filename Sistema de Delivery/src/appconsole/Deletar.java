@@ -14,32 +14,29 @@ public class Deletar {
         Util.conectar();
         manager = Util.getManager();
 
-        //Deletando o pedido de id 2
+        // Busca o cliente pelo nome
         Query q = manager.query();
-        q.constrain(Pedido.class);
-        q.descend("id").constrain(2);
-        List<Pedido> resultados = q.execute();
+        q.constrain(Cliente.class);
+        q.descend("nome").constrain("joao").like();
+        List<Cliente> resultados = q.execute();
 
         if (resultados.size() > 0) {
-            Pedido pedido = resultados.get(0);
-            System.out.println("Pedido encontrado: " + pedido);
+            Cliente cliente = resultados.get(0);
+            System.out.println("Cliente encontrado: " + cliente.getNome());
 
-
-            Cliente cliente = pedido.getCliente();
-            if (cliente != null) {
-                cliente.removerPedido(pedido);
-                manager.store(cliente);
-                System.out.println("removeu pedido da lista do cliente... " + cliente.getNome());
+            // Percorre a lista de pedidos do cliente para apagar os dependentes
+            for (Pedido pedido : cliente.getPedidos()) {
+                manager.delete(pedido);
+                System.out.println("Pedido ID " + pedido.getId() + " apagado por ficar órfão.");
             }
 
-            // O pedido não precisa ser removido dos produtos, pois o relacionamento
-            // parte do Pedido para o Produto, e os Produtos independem dos pedidos.
-            manager.delete(pedido);
+            // Após tratar os órfãos, deleta o cliente
+            manager.delete(cliente);
             manager.commit();
-            
-            System.out.println("pedido apagado com sucesso.");
+
+            System.out.println("Cliente apagado com sucesso.");
         } else {
-            System.out.println("Pedido nao encontrado");
+            System.out.println("Cliente nao encontrado");
         }
 
         Util.desconectar();

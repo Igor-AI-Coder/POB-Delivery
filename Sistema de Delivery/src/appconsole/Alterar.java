@@ -14,7 +14,6 @@ public class Alterar {
         Util.conectar();
         manager = Util.getManager();
 
-        // Alteração:
         // remover pedido de ID 1 do cliente "joao"
 
         Query q = manager.query();
@@ -39,8 +38,6 @@ public class Alterar {
             if (pedidoParaRemover != null) {
                 cliente.removerPedido(pedidoParaRemover);
                 manager.store(cliente);
-
-                //Remoção caso vire orfão dentro do sistema
                 manager.delete(pedidoParaRemover);
                 System.out.println("Pedido removido por ficar orfão no sistema");
                 
