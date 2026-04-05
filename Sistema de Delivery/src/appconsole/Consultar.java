@@ -3,6 +3,8 @@ package appconsole;
 import java.util.List;
 
 import com.db4o.ObjectContainer;
+import com.db4o.query.Candidate;
+import com.db4o.query.Evaluation;
 import com.db4o.query.Query;
 
 import modelo.Cliente;
@@ -38,31 +40,13 @@ public class Consultar {
         }
 
         System.out.println("\n--- 3. Quais os clientes que tem mais de 2 pedidos do produto 'Pizza' ---");
-        //Busca todos os clientes do banco usando uma consulta SODA simples
         q = manager.query();
         q.constrain(Cliente.class);
-        List<Cliente> todosClientes = q.execute();
+        q.constrain(new FiltroCliente(2, "Pizza")); // Aplica o filtro Evaluation
+        List<Cliente> resultados3 = q.execute();
 
-        //percorre a lista de todos os clientes retornados
-        for (Cliente cliente : todosClientes) {
-            int contadorPedidos = 0;
-
-            //entra na lista de pedidos de cada cliente
-            for (Pedido pedido : cliente.getPedidos()) {
-                
-                //verifica os produtos dentro de cada pedido
-                for (Produto produto : pedido.getProdutos()) {
-                    if (produto.getNome().equalsIgnoreCase("Pizza")) {
-                        contadorPedidos++;
-                        break;
-                    }
-                }
-            }
-
-            //só imprime o cliente na tela se ele bateu a meta (mais de 2 pedidos)
-            if (contadorPedidos > 2) {
-                System.out.println(cliente);
-            }
+        for (Cliente cliente : resultados3) {
+            System.out.println(cliente);
         }
 
         Util.desconectar();
@@ -70,5 +54,41 @@ public class Consultar {
 
     public static void main(String[] args) {
         new Consultar();
+    }
+}
+
+// Classe interna para filtragem no db4o (Evaluation)
+class FiltroCliente implements Evaluation {
+    private int quantidadeMinima;
+    private String nomeProduto;
+
+    public FiltroCliente(int quantidadeMinima, String nomeProduto) {
+        this.quantidadeMinima = quantidadeMinima;
+        this.nomeProduto = nomeProduto;
+    }
+
+    public void evaluate(Candidate candidate) {
+        // Obter cada objeto da classe Cliente que está sendo avaliado pelo banco
+        Cliente cliente = (Cliente) candidate.getObject();
+        int contadorPedidos = 0;
+
+        // entra na lista de pedidos de cada cliente
+        for (Pedido pedido : cliente.getPedidos()) {
+            
+            // verifica os produtos dentro de cada pedido
+            for (Produto produto : pedido.getProdutos()) {
+                if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
+                    contadorPedidos++;
+                    break; // para não contar o mesmo pedido mais de uma vez se tiver duas pizzas
+                }
+            }
+        }
+
+        // só inclui o cliente no resultado da consulta se ele bateu a meta
+        if (contadorPedidos > quantidadeMinima) {
+            candidate.include(true); // incluir objeto no resultado
+        } else {
+            candidate.include(false); // excluir objeto do resultado
+        }
     }
 }
