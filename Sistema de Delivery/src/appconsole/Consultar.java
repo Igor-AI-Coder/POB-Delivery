@@ -1,9 +1,10 @@
 package appconsole;
 
 import java.util.List;
-
 import com.db4o.ObjectContainer;
 import com.db4o.query.Query;
+import com.db4o.query.Evaluation;
+import com.db4o.query.Candidate;
 
 import modelo.Cliente;
 import modelo.Pedido;
@@ -40,47 +41,65 @@ public class Consultar {
         System.out.println("\n--- 3. Quais os clientes que tem mais de 2 pedidos do produto 'Pizza' ---");
         q = manager.query();
         q.constrain(Cliente.class);
-        q.descend("pedidos").descend("produtos").descend("nome").constrain("Pizza").like();
-        List<Cliente> clientesComPizza = q.execute();
+        q.constrain(new FiltroClienteMaisde2Pizzas());
+        List<Cliente> resultados3 = q.execute();
 
-        for (Cliente cliente : clientesComPizza) {
-            int contadorPedidos = 0;
-
+        for (Cliente cliente : resultados3) {
+            int contadorPizzas = 0;
+            // loop para contar quantos pedidos com pizza o cliente tem
             for (Pedido pedido : cliente.getPedidos()) {
                 for (Produto produto : pedido.getProdutos()) {
                     if (produto.getNome().equalsIgnoreCase("Pizza")) {
-                        contadorPedidos++;
+                        contadorPizzas++;
                         break;
                     }
                 }
             }
-
-            if (contadorPedidos > 2) {
-                System.out.println("\nCliente: " + cliente.getNome());
-                System.out.println("Total de pedidos com Pizza: " + contadorPedidos);
-                for (Pedido pedido : cliente.getPedidos()) {
-                    boolean temPizza = false;
-                    for (Produto produto : pedido.getProdutos()) {
-                        if (produto.getNome().equalsIgnoreCase("Pizza")) {
-                            temPizza = true;
-                            break;
+            
+            System.out.println(cliente.getNome() + " | " + contadorPizzas + " pedidos");
+            // loop para mostrar os detalhes dos pedidos com pizza
+            for (Pedido pedido : cliente.getPedidos()) {
+                for (Produto produto : pedido.getProdutos()) {
+                    if (produto.getNome().equalsIgnoreCase("Pizza")) {
+                        System.out.print("  Pedido #" + pedido.getId() + " | " + pedido.getData() + " | R$ " + pedido.calcularTotal() + " | ");
+                        for (int i = 0; i < pedido.getProdutos().size(); i++) {
+                            Produto p = pedido.getProdutos().get(i);
+                            System.out.print(p.getNome() + " (R$ " + p.getPreco() + ")");
+                            if (i < pedido.getProdutos().size() - 1) {
+                                System.out.print(", ");
+                            }
                         }
-                    }
-                    if (temPizza) {
-                        System.out.println("  Pedido #" + pedido.getId() + " - " + pedido.getData() + " - R$ " + pedido.calcularTotal());
-                        for (Produto produto : pedido.getProdutos()) {
-                            System.out.println("    - " + produto.getNome() + " (R$ " + produto.getPreco() + ")");
-                        }
+                        System.out.println();
+                        break;
                     }
                 }
             }
+            System.out.println();
         }
-
         Util.desconectar();
-        System.out.println("\n\n aviso: feche sempre o plugin OME antes de executar aplicação");
     }
 
     public static void main(String[] args) {
         new Consultar();
+    }
+}
+
+class FiltroClienteMaisde2Pizzas implements Evaluation {
+
+    @Override
+    public void evaluate(Candidate candidate) {
+        Cliente cliente = (Cliente) candidate.getObject();
+        int contadorPedidos = 0;
+
+        for (Pedido pedido : cliente.getPedidos()) {
+            for (Produto produto : pedido.getProdutos()) {
+                if (produto.getNome().equalsIgnoreCase("Pizza")) {
+                    contadorPedidos++;
+                    break;
+                }
+            }
+        }
+
+        candidate.include(contadorPedidos > 2);
     }
 }

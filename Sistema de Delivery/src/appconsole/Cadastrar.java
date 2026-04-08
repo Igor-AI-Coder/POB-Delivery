@@ -17,15 +17,15 @@ public class Cadastrar {
 		
 		// ===== CRIANDO PRODUTOS =====
 		Produto produto1 = new Produto("Pizza", 85.00);
-		Produto produto2 = new Produto("Hamburguer", 45.00);
-		Produto produto3 = new Produto("Pastel", 35.00);
-		Produto produto4 = new Produto("Sanduiche", 55.00);
+		Produto produto2 = new Produto("Sanduiche", 28.00);
+		Produto produto3 = new Produto("Pastel", 15.00);
+		Produto produto4 = new Produto("Coxinha", 12.00);
 		Produto produto5 = new Produto("Refrigerante", 8.00);
-		Produto produto6 = new Produto("Brigadeiro", 30.00);
-		Produto produto7 = new Produto("Cachorro Quente", 32.00);
-		Produto produto8 = new Produto("Coxinha", 38.00);
-		Produto produto9 = new Produto("Agua", 5.00);
-		Produto produto10 = new Produto("Acaraje", 40.00);
+		Produto produto6 = new Produto("Agua", 5.00);
+		Produto produto7 = new Produto("Cachorro Quente", 18.00);
+		Produto produto8 = new Produto("Brigadeiro", 10.00);
+		Produto produto9 = new Produto("Acaraje", 15.00);
+		Produto produto10 = new Produto("Risole", 12.00);
 		
 		manager.store(produto1);
 		manager.commit();
@@ -50,8 +50,8 @@ public class Cadastrar {
 		
 		// ===== CRIANDO CLIENTES E PEDIDOS =====
 		
-		// Cliente 1 - João Silva (3 pedidos com Pizza) - Enquadra consulta 3
-		Cliente cliente1 = new Cliente("João Silva", "Rua A, 123");
+		// Cliente 1 - João (3 pedidos com Pizza) - Enquadra consulta 3
+		Cliente cliente1 = new Cliente("João", "Rua A, 123");
 		
 		Pedido pedido1 = new Pedido("10/10/2023", cliente1);
 		pedido1.adicionarProduto(produto1);
@@ -72,104 +72,77 @@ public class Cadastrar {
 		manager.store(cliente1);
 		manager.commit();
 		
-		// Cliente 2 - Maria Santos (sem Pizza)
-		Cliente cliente2 = new Cliente("Maria Santos", "Rua B, 456");
+		// Cliente 2 - Yago (3 pedidos com Pizza) - Enquadra consulta 3
+		Cliente cliente2 = new Cliente("Yago", "Rua B, 456");
 		
 		Pedido pedido4 = new Pedido("13/10/2023", cliente2);
-		pedido4.adicionarProduto(produto6);
-		pedido4.adicionarProduto(produto5);
+		pedido4.adicionarProduto(produto1);
+		pedido4.adicionarProduto(produto7);
 		
 		Pedido pedido5 = new Pedido("14/10/2023", cliente2);
-		pedido5.adicionarProduto(produto7);
+		pedido5.adicionarProduto(produto1);
 		pedido5.adicionarProduto(produto8);
+		
+		Pedido pedido6 = new Pedido("15/10/2023", cliente2);
+		pedido6.adicionarProduto(produto1);
+		pedido6.adicionarProduto(produto2);
 		
 		cliente2.adicionarPedido(pedido4);
 		cliente2.adicionarPedido(pedido5);
+		cliente2.adicionarPedido(pedido6);
 		
 		manager.store(cliente2);
 		manager.commit();
 		
-		// Cliente 3 - Carlos Costa (1 pedido com Pizza)
-		Cliente cliente3 = new Cliente("Carlos Costa", "Rua C, 789");
-		
-		Pedido pedido6 = new Pedido("15/10/2023", cliente3);
-		pedido6.adicionarProduto(produto9);
-		pedido6.adicionarProduto(produto10);
+		// Cliente 3 - Bob 
+		Cliente cliente3 = new Cliente("Bob", "Rua C, 789");
 		
 		Pedido pedido7 = new Pedido("16/10/2023", cliente3);
-		pedido7.adicionarProduto(produto1);
-		pedido7.adicionarProduto(produto4);
+		pedido7.adicionarProduto(produto2);
+		pedido7.adicionarProduto(produto5);
 		
-		cliente3.adicionarPedido(pedido6);
+		Pedido pedido8 = new Pedido("17/10/2023", cliente3);
+		pedido8.adicionarProduto(produto3);
+		pedido8.adicionarProduto(produto6);
+		
 		cliente3.adicionarPedido(pedido7);
+		cliente3.adicionarPedido(pedido8);
 		
 		manager.store(cliente3);
 		manager.commit();
 		
-		// Cliente 4 - Ana Silva (3 pedidos com Pizza) - Enquadra consulta 3
-		Cliente cliente4 = new Cliente("Ana Silva", "Rua D, 321");
+		// Cliente 4 - Carlos
+		Cliente cliente4 = new Cliente("Carlos", "Rua D, 321");
 		
-		Pedido pedido8 = new Pedido("10/10/2023", cliente4);
-		pedido8.adicionarProduto(produto1);
-		pedido8.adicionarProduto(produto5);
+		Pedido pedido9 = new Pedido("18/10/2023", cliente4);
+		pedido9.adicionarProduto(produto4);
+		pedido9.adicionarProduto(produto9);
 		
-		Pedido pedido9 = new Pedido("11/10/2023", cliente4);
-		pedido9.adicionarProduto(produto1);
-		pedido9.adicionarProduto(produto6);
-		
-		Pedido pedido10 = new Pedido("17/10/2023", cliente4);
+		Pedido pedido10 = new Pedido("19/10/2023", cliente4);
 		pedido10.adicionarProduto(produto1);
-		pedido10.adicionarProduto(produto9);
+		pedido10.adicionarProduto(produto7);
 		
-		cliente4.adicionarPedido(pedido8);
 		cliente4.adicionarPedido(pedido9);
 		cliente4.adicionarPedido(pedido10);
 		
 		manager.store(cliente4);
 		manager.commit();
 		
-		// Cliente 5 - Pedro Costa (2 pedidos com Pizza)
-		Cliente cliente5 = new Cliente("Pedro Costa", "Rua E, 654");
+		// Cliente 5 - Pedro 
+		Cliente cliente5 = new Cliente("Pedro", "Rua E, 654");
 		
-		Pedido pedido11 = new Pedido("18/10/2023", cliente5);
+		Pedido pedido11 = new Pedido("20/10/2023", cliente5);
 		pedido11.adicionarProduto(produto1);
-		pedido11.adicionarProduto(produto2);
+		pedido11.adicionarProduto(produto3);
 		
-		Pedido pedido12 = new Pedido("19/10/2023", cliente5);
-		pedido12.adicionarProduto(produto3);
-		pedido12.adicionarProduto(produto7);
-		
-		Pedido pedido13 = new Pedido("20/10/2023", cliente5);
-		pedido13.adicionarProduto(produto1);
-		pedido13.adicionarProduto(produto4);
+		Pedido pedido12 = new Pedido("21/10/2023", cliente5);
+		pedido12.adicionarProduto(produto2);
+		pedido12.adicionarProduto(produto8);
 		
 		cliente5.adicionarPedido(pedido11);
 		cliente5.adicionarPedido(pedido12);
-		cliente5.adicionarPedido(pedido13);
 		
 		manager.store(cliente5);
-		manager.commit();
-		
-		// Cliente 6 - Lucia Fernandes (3 pedidos com Pizza) - Enquadra consulta 3
-		Cliente cliente6 = new Cliente("Lucia Fernandes", "Rua F, 987");
-		
-		Pedido pedido14 = new Pedido("21/10/2023", cliente6);
-		pedido14.adicionarProduto(produto1);
-		pedido14.adicionarProduto(produto8);
-		
-		Pedido pedido15 = new Pedido("22/10/2023", cliente6);
-		pedido15.adicionarProduto(produto1);
-		pedido15.adicionarProduto(produto10);
-		
-		Pedido pedido16 = new Pedido("23/10/2023", cliente6);
-		pedido16.adicionarProduto(produto1);
-		pedido16.adicionarProduto(produto3);
-		
-		cliente6.adicionarPedido(pedido14);
-		cliente6.adicionarPedido(pedido15);
-		cliente6.adicionarPedido(pedido16);
-		
-		manager.store(cliente6);
 		manager.commit();
 		
 		Util.desconectar();
