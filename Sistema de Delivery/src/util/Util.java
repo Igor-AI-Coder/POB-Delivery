@@ -1,113 +1,103 @@
+/**
+ * IFPB - SI
+ * POB - Persistencia de Objetos
+ * Prof. Fausto Ayres
+ **********************************/
+
 package util;
 
+import java.io.IOException;
 import java.util.Properties;
-import javax.swing.JOptionPane;
 
-import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.config.EmbeddedConfiguration;
-import com.db4o.cs.Db4oClientServer;
-import com.db4o.cs.config.ClientConfiguration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.hibernate.cfg.JdbcSettings;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 
-import modelo.Cliente;
-import modelo.Pedido;
-import modelo.Produto;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceConfiguration;
+import jakarta.persistence.PersistenceUnitTransactionType;
 
 public class Util {
-    private static ObjectContainer manager;
-    private static String ipservidor;
+	private static EntityManager manager;
+	private static EntityManagerFactory factory;
 
-    public static void conectar() {
-        try {
-            Properties props = new Properties();
-            props.load(Util.class.getResourceAsStream("/util/ip.properties")); // lê ip
-            ipservidor = props.getProperty("ipatual");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro IP");
-            System.exit(0);
-        }
+	static {
+		// Força o Log4j2 a usar o arquivo em META-INF quando estiver no classpath.
+		if (System.getProperty("log4j.configurationFile") == null) {
+			System.setProperty("log4j.configurationFile", "classpath:META-INF/log4j2.properties");
+		}
+	}
 
-        if (ipservidor.equals("localhost"))
-            conectarBancoLocal(); // local
-        else
-            conectarBancoRemoto(); // remoto
+	private static final Logger logger = LogManager.getLogger(Util.class);
 
-        ControleID.ativar(manager); // ativa auto ID
-    }
+	@SuppressWarnings("unused")
+	public static void conectar() {
+		if (manager == null) {
+			// ler dicionario do arquivo "ip.properties" 
+			Properties propriedades = new Properties();
+			try {
+				propriedades.load(Util.class.getResourceAsStream("/util/ip.properties"));
+			} catch (IOException e) {
+				throw new RuntimeException("arquivo /util/ip.properties inexistente");
+			}
+			
+			//acessar os dados do dicionario
+			String sgbd = propriedades.getProperty("sgbd");
+			String banco = propriedades.getProperty("bd");
+			String usuario = propriedades.getProperty("usuario");
+			String senha = propriedades.getProperty("senha");
+			String ipatual = propriedades.getProperty("ipatual");
 
-    private static void conectarBancoLocal() {
-        if (manager != null)
-            return; // já conectado
+			if (sgbd.equals("postgresql")) {
+				logger.info("----conectando postgresql");
+				String url = "jdbc:" + sgbd + "://" + ipatual + ":5432/" + banco;
+				factory = alterarConfiguracao(url, usuario, senha);
+			}
+			
+			if (sgbd.equals("mysql")) {
+				logger.info("----conectando mysql");
+				String url = "jdbc:" + sgbd + "://" + ipatual + ":3306/" + banco;
+				factory = alterarConfiguracao(url, usuario, senha);
+			}
+			
+			manager = factory.createEntityManager();
+			logger.info("-------- conectou banco de dados");
+		}
+	}
 
-        EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
-        config.common().messageLevel(0); // sem log
+	public static void desconectar() {
+		if (manager != null && manager.isOpen()) {
+			manager.close();
+			factory.close();
+			manager = null;
+			logger.debug("-------- desconectou banco de dados");
+		}
+	}
 
-        // ===== CONFIG CLASSES =====
+	public static EntityManagerFactory alterarConfiguracao(String url, String usuario, String senha) {
+		// faz o mesmo trabalho do persistence.xml, mas de forma programatica
+		return new PersistenceConfiguration("hibernate-postgresql")
+				.transactionType(PersistenceUnitTransactionType.RESOURCE_LOCAL)
+				.provider(HibernatePersistenceProvider.class.getName())
+				.managedClass(modelo.Produto.class)
+				.managedClass(modelo.Cliente.class)
+				.managedClass(modelo.Pedido.class)
+				.property(PersistenceConfiguration.JDBC_URL, url)
+				.property(PersistenceConfiguration.JDBC_USER, usuario)
+				.property(PersistenceConfiguration.JDBC_PASSWORD, senha)
+				.property("hibernate.hbm2ddl.auto", "create-drop")
+				.property(JdbcSettings.SHOW_SQL, false)
+				.property(JdbcSettings.FORMAT_SQL, true)          // ✅ true (formata SQL)
+				.property(JdbcSettings.HIGHLIGHT_SQL, false)
+				.createEntityManagerFactory();
 
-        // Cliente -> pedidos
-        config.common().objectClass(Cliente.class).cascadeOnUpdate(true);   // atualiza pedidos
-        config.common().objectClass(Cliente.class).cascadeOnActivate(true); // carrega pedidos
-        config.common().objectClass(Cliente.class).cascadeOnDelete(false);  // NÃO deleta
+	}
 
-        // Pedido -> produtos
-        config.common().objectClass(Pedido.class).cascadeOnUpdate(true);   // atualiza produtos
-        config.common().objectClass(Pedido.class).cascadeOnActivate(true); // carrega produtos
-        config.common().objectClass(Pedido.class).cascadeOnDelete(false);  // NÃO deleta
+	public static EntityManager getManager() {
+		return manager;
+	}
 
-        // Produto (independente)
-        config.common().objectClass(Produto.class).cascadeOnUpdate(false);  // sem cascata
-        config.common().objectClass(Produto.class).cascadeOnActivate(true);// carrega
-        config.common().objectClass(Produto.class).cascadeOnDelete(false); // NÃO deleta
-
-        try {
-            manager = Db4oEmbedded.openFile(config, "banco.db4o"); // abre banco
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro banco local");
-            System.exit(0);
-        }
-    }
-
-    private static void conectarBancoRemoto() {
-        if (manager != null)
-            return; // já conectado
-
-        ClientConfiguration config = Db4oClientServer.newClientConfiguration();
-        config.common().messageLevel(0); // sem log
-
-        // mesma config do local
-
-        config.common().objectClass(Cliente.class).cascadeOnUpdate(true);
-        config.common().objectClass(Cliente.class).cascadeOnActivate(true);
-        config.common().objectClass(Cliente.class).cascadeOnDelete(false);
-
-        config.common().objectClass(Pedido.class).cascadeOnUpdate(true);
-        config.common().objectClass(Pedido.class).cascadeOnActivate(true);
-        config.common().objectClass(Pedido.class).cascadeOnDelete(false);
-
-        config.common().objectClass(Produto.class).cascadeOnUpdate(false);
-        config.common().objectClass(Produto.class).cascadeOnActivate(true);
-        config.common().objectClass(Produto.class).cascadeOnDelete(false);
-
-        try {
-            manager = Db4oClientServer.openClient(config, ipservidor, 34000, "usuario1", "senha1"); // conecta
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro banco remoto");
-            System.exit(0);
-        }
-    }
-
-    public static void desconectar() {
-        if (manager != null) {
-            manager.close(); // fecha banco
-            manager = null;
-        }
-    }
-
-    public static ObjectContainer getManager() {
-        return manager; // retorna conexão
-    }
-
-    public static String getIPservidor() {
-        return ipservidor; // retorna ip
-    }
 }

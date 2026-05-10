@@ -1,15 +1,42 @@
+/**
+ * IFPB - Curso Superior de Tec. em Sist. para Internet
+ * POB - Persistência de Objetos - Etapa 2 (JPA)
+ * Prof. Fausto Ayres
+ */
+
 package modelo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "produto20242370034")  
 public class Produto {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_produto")
     private int id;
+    
+    @Column(name = "nome_produto", nullable = false, length = 100)
     private String nome;
+    
+    @Column(name = "preco_produto", nullable = false)
     private double preco;
 
+    // ===== Construtores =====
+    public Produto() {}  // ✅ Obrigatório para JPA
+    
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
 
+    // ===== Getters e Setters =====
     public int getId() {
         return id;
     }
@@ -39,7 +66,7 @@ public class Produto {
         return "Produto{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", preco=" + preco +
+                ", preco=" + String.format("%.2f", preco) +
                 '}';
     }
 }

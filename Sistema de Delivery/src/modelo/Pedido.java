@@ -1,21 +1,62 @@
+/**
+ * IFPB - Curso Superior de Tec. em Sist. para Internet
+ * POB - Persistência de Objetos - Etapa 2 (JPA)
+ * Prof. Fausto Ayres
+ */
+
 package modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "pedido20242370034") 
 public class Pedido {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pedido")
     private int id;
-    private String data;
+    
+    @Column(name = "data_pedido", nullable = false)
+    private LocalDate data;  // ✅ LocalDate, não String!
+    
+    // ===== RELACIONAMENTO N-1: Pedido -> Cliente =====
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
-    private List<Produto> produtos;
+    
+    // ===== RELACIONAMENTO N-N: Pedido -> Produtos =====
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+        name = "pedido_produto20242370034",  // ✅ Tabela de junção com matrícula
+        joinColumns = @JoinColumn(name = "pedido_id"),
+        inverseJoinColumns = @JoinColumn(name = "produto_id")
+    )
+    private List<Produto> produtos = new ArrayList<>();
 
-    public Pedido(String data, Cliente cliente) {
+    // ===== Construtores =====
+    public Pedido() {}  // ✅ Obrigatório
+    
+    public Pedido(LocalDate data, Cliente cliente) {  // ✅ LocalDate!
         this.data = data;
         this.cliente = cliente;
-        this.produtos = new ArrayList<>();
     }
 
+    // ===== Getters e Setters =====
     public int getId() {
         return id;
     }
@@ -24,11 +65,11 @@ public class Pedido {
         this.id = id;
     }
 
-    public String getData() {
+    public LocalDate getData() {  // ✅ Retorna LocalDate
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {  // ✅ Recebe LocalDate
         this.data = data;
     }
 
@@ -44,6 +85,7 @@ public class Pedido {
         return produtos;
     }
 
+    // ===== Métodos de Relacionamento =====
     public void adicionarProduto(Produto produto) {
         this.produtos.add(produto);
     }
@@ -66,8 +108,8 @@ public class Pedido {
                 "id=" + id +
                 ", data=" + data +
                 ", cliente=" + cliente.getNome() +
-                ", produtos=" + produtos +
-                ", total=" + calcularTotal() +
+                ", produtos=" + produtos.size() +
+                ", total=R$ " + String.format("%.2f", calcularTotal()) +
                 '}';
     }
 }
