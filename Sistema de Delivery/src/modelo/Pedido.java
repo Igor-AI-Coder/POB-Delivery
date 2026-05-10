@@ -23,7 +23,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "pedido20242370034") 
+@Table(name = "pedido") 
 public class Pedido {
     
     @Id
@@ -42,7 +42,7 @@ public class Pedido {
     // ===== RELACIONAMENTO N-N: Pedido -> Produtos =====
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-        name = "pedido_produto20242370034",  // ✅ Tabela de junção com matrícula
+        name = "pedido_produto",  // ✅ Tabela de junção com matrícula
         joinColumns = @JoinColumn(name = "pedido_id"),
         inverseJoinColumns = @JoinColumn(name = "produto_id")
     )

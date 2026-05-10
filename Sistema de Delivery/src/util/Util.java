@@ -53,14 +53,18 @@ public class Util {
 
 			if (sgbd.equals("postgresql")) {
 				logger.info("----conectando postgresql");
-				String url = "jdbc:" + sgbd + "://" + ipatual + ":5432/" + banco;
-				factory = alterarConfiguracao(url, usuario, senha);
+				factory = Persistence.createEntityManagerFactory("hibernate-postgresql");
+
+				// String url = "jdbc:" + sgbd + "://" + ipatual + ":5432/" + banco;
+				// factory = alterarConfiguracao(url, usuario, senha);
 			}
-			
+
 			if (sgbd.equals("mysql")) {
 				logger.info("----conectando mysql");
-				String url = "jdbc:" + sgbd + "://" + ipatual + ":3306/" + banco;
-				factory = alterarConfiguracao(url, usuario, senha);
+				factory = Persistence.createEntityManagerFactory("hibernate-mysql");
+
+				// String url = "jdbc:" + sgbd + "://" + ipatual + ":3306/" + banco;
+				// factory = alterarConfiguracao(url, usuario, senha);
 			}
 			
 			manager = factory.createEntityManager();
@@ -88,9 +92,9 @@ public class Util {
 				.property(PersistenceConfiguration.JDBC_URL, url)
 				.property(PersistenceConfiguration.JDBC_USER, usuario)
 				.property(PersistenceConfiguration.JDBC_PASSWORD, senha)
-				.property("hibernate.hbm2ddl.auto", "create-drop")
+				.property("hibernate.hbm2ddl.auto", "update")
 				.property(JdbcSettings.SHOW_SQL, false)
-				.property(JdbcSettings.FORMAT_SQL, true)          // ✅ true (formata SQL)
+				.property(JdbcSettings.FORMAT_SQL, false)
 				.property(JdbcSettings.HIGHLIGHT_SQL, false)
 				.createEntityManagerFactory();
 
