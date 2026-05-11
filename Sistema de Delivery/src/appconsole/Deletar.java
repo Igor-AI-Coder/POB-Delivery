@@ -1,45 +1,58 @@
 package appconsole;
 
 import java.util.List;
-import com.db4o.ObjectContainer;
-import com.db4o.query.Query;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import modelo.Cliente;
 import modelo.Pedido;
 import util.Util;
 
 public class Deletar {
-    private ObjectContainer manager;
 
     public Deletar() {
         Util.conectar();
-        manager = Util.getManager();
+        EntityManager manager = Util.getManager();
 
-        // Busca o cliente pelo nome
-        Query q = manager.query();
-        q.constrain(Cliente.class);
-        q.descend("nome").constrain("João").like();
-        List<Cliente> resultados = q.execute();
+        try {
+            manager.getTransaction().begin();
 
-        if (resultados.size() > 0) {
-            Cliente cliente = resultados.get(0);
-            System.out.println("Cliente encontrado: " + cliente.getNome());
+            // Busca o cliente pelo nome usando JPQL 
+            TypedQuery<Cliente> query = manager.createQuery("select c from Cliente c where c.nome like :nome", Cliente.class);
+            query.setParameter("nome", "%João%"); // parâmetro nomeado como vimos nos slides 
+            List<Cliente> resultados = query.getResultList(); // pega a lista
 
-            // Percorre a lista de pedidos do cliente para apagar os dependentes
-            for (Pedido pedido : cliente.getPedidos()) {
-                manager.delete(pedido);
-                System.out.println("Pedido ID " + pedido.getId() + " apagado por ficar órfão.");
+            if (!resultados.isEmpty()) {
+                Cliente cliente = resultados.get(0);
+                System.out.println("Cliente encontrado: " + cliente.getNome());
+
+                // Apagando os pedidos do João pra não dar erro de violação de chave (órfãos)
+                for (Pedido pedido : cliente.getPedidos()) {
+                    manager.remove(pedido); // joga pro manager apagar 
+                    System.out.println("Pedido ID " + pedido.getId() + " apagado.");
+                }
+                
+                // Limpa a lista na memória
+                cliente.getPedidos().clear();
+
+                // Agora sim, apaga o cliente
+                manager.remove(cliente);
+                manager.getTransaction().commit(); // confirma a transação
+
+                System.out.println("Cliente apagado com sucesso.");
+            } else {
+                System.out.println("Cliente não encontrado.");
+                manager.getTransaction().rollback(); // deu ruim, desfaz
             }
 
-            // Após tratar os órfãos, deleta o cliente
-            manager.delete(cliente);
-            manager.commit();
-
-            System.out.println("Cliente apagado com sucesso.");
-        } else {
-            System.out.println("Cliente nao encontrado");
+        } catch (Exception e) {
+            if (manager.getTransaction().isActive()) {
+                manager.getTransaction().rollback();
+            }
+            System.out.println("Erro ao deletar: " + e.getMessage());
+        } finally {
+            Util.desconectar();
         }
-
-        Util.desconectar();
     }
 
     public static void main(String[] args) {

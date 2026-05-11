@@ -1,105 +1,72 @@
 package appconsole;
 
+import java.time.LocalDate;
 import java.util.List;
-import com.db4o.ObjectContainer;
-import com.db4o.query.Query;
-import com.db4o.query.Evaluation;
-import com.db4o.query.Candidate;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import modelo.Cliente;
 import modelo.Pedido;
-import modelo.Produto;
 import util.Util;
 
 public class Consultar {
-    private ObjectContainer manager;
 
     public Consultar() {
         Util.conectar();
-        manager = Util.getManager();
+        EntityManager manager = Util.getManager();
 
-        System.out.println("\n--- 1. Quais os pedidos da data 10/10/2023 ---");
-        Query q = manager.query();
-        q.constrain(Pedido.class);
-        q.descend("data").constrain("10/10/2023"); 
-        List<Pedido> resultados1 = q.execute();
+        try {
+            System.out.println("\n--- 1. Quais os pedidos da data 15/01/2024 ---");
+            // Usando LocalDate 
+            LocalDate dataBusca = LocalDate.of(2024, 1, 15);
+            TypedQuery<Pedido> q1 = manager.createQuery("select p from Pedido p where p.data = :data", Pedido.class);
+            q1.setParameter("data", dataBusca); // Consulta parametrizada com data 
+            List<Pedido> resultados1 = q1.getResultList();
 
-        for (Pedido p : resultados1) {
-            System.out.println(p);
-        }
+            for (Pedido p : resultados1) {
+                System.out.println(p);
+            }
 
-        System.out.println("\n--- 2. Quais os pedidos contendo produto de preco > 50.0 ---");
-        q = manager.query();
-        q.constrain(Pedido.class);
-        q.descend("produtos").descend("preco").constrain(50.0).greater(); 
-        List<Pedido> resultados2 = q.execute();
+            System.out.println("\n--- 2. Quais os pedidos contendo produto de preco > 50.0 ---");
+            // JPQL com JOIN pra acessar a lista de produtos lá de dentro 
+            // Usando distinct pra não repetir o pedido se ele tiver mais de um produto caro
+            TypedQuery<Pedido> q2 = manager.createQuery(
+                "select distinct p from Pedido p JOIN p.produtos prod where prod.preco > :preco", Pedido.class);
+            q2.setParameter("preco", 50.0);
+            List<Pedido> resultados2 = q2.getResultList();
 
-        for (Pedido p : resultados2) {
-            System.out.println(p);
-        }
+            for (Pedido p : resultados2) {
+                System.out.println(p);
+            }
 
-        System.out.println("\n--- 3. Quais os clientes que tem mais de 2 pedidos do produto 'Pizza' ---");
-        q = manager.query();
-        q.constrain(Cliente.class);
-        q.constrain(new FiltroClienteMaisde2Pizzas());
-        List<Cliente> resultados3 = q.execute();
+            System.out.println("\n--- 3. Quais os clientes que tem mais de 2 pedidos do produto 'Pizza' ---");
+            // Matamos a classe de filtro!
+            // Usamos JOIN pra ligar Cliente -> Pedido -> Produto
+            // E o GROUP BY com HAVING pra contar os pedidos 
+            TypedQuery<Cliente> q3 = manager.createQuery(
+                "select c from Cliente c JOIN c.pedidos p JOIN p.produtos prod " +
+                "where prod.nome = 'Pizza' " +
+                "GROUP BY c " +
+                "HAVING count(p) > 2", Cliente.class);
+            List<Cliente> resultados3 = q3.getResultList();
 
-        for (Cliente cliente : resultados3) {
-            int contadorPizzas = 0;
-            // loop para contar quantos pedidos com pizza o cliente tem
-            for (Pedido pedido : cliente.getPedidos()) {
-                for (Produto produto : pedido.getProdutos()) {
-                    if (produto.getNome().equalsIgnoreCase("Pizza")) {
-                        contadorPizzas++;
-                        break;
-                    }
+            for (Cliente cliente : resultados3) {
+                System.out.println("Cliente: " + cliente.getNome());
+                for (Pedido pedido : cliente.getPedidos()) {
+                    // Só pra mostrar no console os pedidos desse cara
+                    System.out.println("  - Pedido #" + pedido.getId() + " | Data: " + pedido.getData() + " | Total: R$ " + String.format("%.2f", pedido.calcularTotal()));
                 }
             }
-            
-            System.out.println(cliente.getNome() + " | " + contadorPizzas + " pedidos");
-            // loop para mostrar os detalhes dos pedidos com pizza
-            for (Pedido pedido : cliente.getPedidos()) {
-                for (Produto produto : pedido.getProdutos()) {
-                    if (produto.getNome().equalsIgnoreCase("Pizza")) {
-                        System.out.print("  Pedido #" + pedido.getId() + " | " + pedido.getData() + " | R$ " + pedido.calcularTotal() + " | ");
-                        for (int i = 0; i < pedido.getProdutos().size(); i++) {
-                            Produto p = pedido.getProdutos().get(i);
-                            System.out.print(p.getNome() + " (R$ " + p.getPreco() + ")");
-                            if (i < pedido.getProdutos().size() - 1) {
-                                System.out.print(", ");
-                            }
-                        }
-                        System.out.println();
-                        break;
-                    }
-                }
-            }
-            System.out.println();
+
+        } catch (Exception e) {
+            System.out.println("Erro na consulta: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            Util.desconectar();
         }
-        Util.desconectar();
     }
 
     public static void main(String[] args) {
         new Consultar();
-    }
-}
-
-class FiltroClienteMaisde2Pizzas implements Evaluation {
-
-    @Override
-    public void evaluate(Candidate candidate) {
-        Cliente cliente = (Cliente) candidate.getObject();
-        int contadorPedidos = 0;
-
-        for (Pedido pedido : cliente.getPedidos()) {
-            for (Produto produto : pedido.getProdutos()) {
-                if (produto.getNome().equalsIgnoreCase("Pizza")) {
-                    contadorPedidos++;
-                    break;
-                }
-            }
-        }
-
-        candidate.include(contadorPedidos > 2);
     }
 }
