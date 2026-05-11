@@ -1,9 +1,3 @@
-/**
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POB - Persistência de Objetos - Etapa 2 (JPA)
- * Prof. Fausto Ayres
- */
-
 package modelo;
 
 import java.time.LocalDate;
@@ -22,94 +16,87 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "pedido") 
+@Entity  // Marca esta classe como tabela no banco
+@Table(name = "pedido")  // Nome da tabela
 public class Pedido {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pedido")
-    private int id;
-    
-    @Column(name = "data_pedido", nullable = false)
-    private LocalDate data;  // ✅ LocalDate, não String!
-    
-    // ===== RELACIONAMENTO N-1: Pedido -> Cliente =====
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "cliente_id", nullable = false)
-    private Cliente cliente;
-    
-    // ===== RELACIONAMENTO N-N: Pedido -> Produtos =====
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-        name = "pedido_produto",  // ✅ Tabela de junção com matrícula
-        joinColumns = @JoinColumn(name = "pedido_id"),
-        inverseJoinColumns = @JoinColumn(name = "produto_id")
-    )
-    private List<Produto> produtos = new ArrayList<>();
 
-    // ===== Construtores =====
-    public Pedido() {}  // ✅ Obrigatório
-    
-    public Pedido(LocalDate data, Cliente cliente) {  // ✅ LocalDate!
-        this.data = data;
-        this.cliente = cliente;
-    }
+	@Id  // Chave primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremento
+	@Column(name = "id_pedido")  // Nome da coluna
+	private int id;
 
-    // ===== Getters e Setters =====
-    public int getId() {
-        return id;
-    }
+	@Column(name = "data_pedido", nullable = false)  // Coluna obrigatória
+	private LocalDate data;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	// N pedidos para 1 cliente
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name = "cliente_id", nullable = false)  // Chave estrangeira
+	private Cliente cliente;
 
-    public LocalDate getData() {  // ✅ Retorna LocalDate
-        return data;
-    }
+	// N pedidos para N produtos (tabela de junção)
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(
+		name = "pedido_produto",  // Nome da tabela de junção
+		joinColumns = @JoinColumn(name = "pedido_id"),
+		inverseJoinColumns = @JoinColumn(name = "produto_id")
+	)
+	private List<Produto> produtos = new ArrayList<>();
 
-    public void setData(LocalDate data) {  // ✅ Recebe LocalDate
-        this.data = data;
-    }
+	public Pedido() {}
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	public Pedido(LocalDate data, Cliente cliente) {
+		this.data = data;
+		this.cliente = cliente;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    // ===== Métodos de Relacionamento =====
-    public void adicionarProduto(Produto produto) {
-        this.produtos.add(produto);
-    }
+	public LocalDate getData() {
+		return data;
+	}
 
-    public void removerProduto(Produto produto) {
-        this.produtos.remove(produto);
-    }
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
 
-    public double calcularTotal() {
-        double total = 0;
-        for (Produto p : produtos) {
-            total += p.getPreco();
-        }
-        return total;
-    }
+	public Cliente getCliente() {
+		return cliente;
+	}
 
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "id=" + id +
-                ", data=" + data +
-                ", cliente=" + cliente.getNome() +
-                ", produtos=" + produtos.size() +
-                ", total=R$ " + String.format("%.2f", calcularTotal()) +
-                '}';
-    }
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void adicionarProduto(Produto produto) {
+		produtos.add(produto);
+	}
+
+	public void removerProduto(Produto produto) {
+		produtos.remove(produto);
+	}
+
+	public double calcularTotal() {
+		return produtos.stream().mapToDouble(Produto::getPreco).sum();
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido{" +
+				"id=" + id +
+				", data=" + data +
+				", cliente=" + cliente.getNome() +
+				", produtos=" + produtos.size() +
+				", total=R$ " + String.format("%.2f", calcularTotal()) +
+				'}';
+	}
 }

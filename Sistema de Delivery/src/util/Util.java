@@ -1,9 +1,3 @@
-/**
- * IFPB - SI
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- **********************************/
-
 package util;
 
 import java.io.IOException;
@@ -23,52 +17,39 @@ import jakarta.persistence.PersistenceUnitTransactionType;
 public class Util {
 	private static EntityManager manager;
 	private static EntityManagerFactory factory;
-
-	static {
-		// Força o Log4j2 a usar o arquivo em META-INF quando estiver no classpath.
-		if (System.getProperty("log4j.configurationFile") == null) {
-			System.setProperty("log4j.configurationFile", "classpath:META-INF/log4j2.properties");
-		}
-	}
-
 	private static final Logger logger = LogManager.getLogger(Util.class);
 
-	@SuppressWarnings("unused")
+	static {
+		System.setProperty("log4j.configurationFile", "classpath:log4j2.properties");
+	}
+
 	public static void conectar() {
 		if (manager == null) {
-			// ler dicionario do arquivo "ip.properties" 
-			Properties propriedades = new Properties();
+			Properties props = new Properties();
 			try {
-				propriedades.load(Util.class.getResourceAsStream("/util/ip.properties"));
+				props.load(Util.class.getResourceAsStream("/util/ip.properties"));
 			} catch (IOException e) {
-				throw new RuntimeException("arquivo /util/ip.properties inexistente");
+				throw new RuntimeException("Arquivo ip.properties não encontrado");
 			}
-			
-			//acessar os dados do dicionario
-			String sgbd = propriedades.getProperty("sgbd");
-			String banco = propriedades.getProperty("bd");
-			String usuario = propriedades.getProperty("usuario");
-			String senha = propriedades.getProperty("senha");
-			String ipatual = propriedades.getProperty("ipatual");
+
+			String sgbd = props.getProperty("sgbd");
+			String banco = props.getProperty("bd");
+			String usuario = props.getProperty("usuario");
+			String senha = props.getProperty("senha");
+			String ipatual = props.getProperty("ipatual");
+
+			logger.info("Conectando " + sgbd);
 
 			if (sgbd.equals("postgresql")) {
-				logger.info("----conectando postgresql");
-				factory = Persistence.createEntityManagerFactory("hibernate-postgresql");
-
-				// String url = "jdbc:" + sgbd + "://" + ipatual + ":5432/" + banco;
-				// factory = alterarConfiguracao(url, usuario, senha);
+				String url = "jdbc:" + sgbd + "://" + ipatual + ":5432/" + banco;
+				factory = criarFactory(url, usuario, senha);
+			} else if (sgbd.equals("mysql")) {
+				String url = "jdbc:" + sgbd + "://" + ipatual + ":3306/" + banco;
+				factory = criarFactory(url, usuario, senha);
 			}
 
-			if (sgbd.equals("mysql")) {
-				logger.info("----conectando mysql");
-				factory = Persistence.createEntityManagerFactory("hibernate-mysql");
-
-				// String url = "jdbc:" + sgbd + "://" + ipatual + ":3306/" + banco;
-				// factory = alterarConfiguracao(url, usuario, senha);
-			}
-			
 			manager = factory.createEntityManager();
-			logger.info("-------- conectou banco de dados");
+			logger.info("Banco conectado com sucesso");
 		}
 	}
 
@@ -77,12 +58,11 @@ public class Util {
 			manager.close();
 			factory.close();
 			manager = null;
-			logger.debug("-------- desconectou banco de dados");
+			logger.info("Banco desconectado");
 		}
 	}
 
-	public static EntityManagerFactory alterarConfiguracao(String url, String usuario, String senha) {
-		// faz o mesmo trabalho do persistence.xml, mas de forma programatica
+	private static EntityManagerFactory criarFactory(String url, String usuario, String senha) {
 		return new PersistenceConfiguration("hibernate-postgresql")
 				.transactionType(PersistenceUnitTransactionType.RESOURCE_LOCAL)
 				.provider(HibernatePersistenceProvider.class.getName())
@@ -94,14 +74,12 @@ public class Util {
 				.property(PersistenceConfiguration.JDBC_PASSWORD, senha)
 				.property("hibernate.hbm2ddl.auto", "update")
 				.property(JdbcSettings.SHOW_SQL, false)
-				.property(JdbcSettings.FORMAT_SQL, false)
+				.property(JdbcSettings.FORMAT_SQL, true)
 				.property(JdbcSettings.HIGHLIGHT_SQL, false)
 				.createEntityManagerFactory();
-
 	}
 
 	public static EntityManager getManager() {
 		return manager;
 	}
-
 }

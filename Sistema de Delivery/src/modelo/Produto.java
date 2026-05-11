@@ -1,9 +1,3 @@
-/**
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POB - Persistência de Objetos - Etapa 2 (JPA)
- * Prof. Fausto Ayres
- */
-
 package modelo;
 
 import jakarta.persistence.Column;
@@ -13,60 +7,58 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "produto")  
+@Entity  // Marca esta classe como tabela no banco
+@Table(name = "produto")
 public class Produto {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_produto")
-    private int id;
-    
-    @Column(name = "nome_produto", nullable = false, length = 100)
-    private String nome;
-    
-    @Column(name = "preco_produto", nullable = false)
-    private double preco;
 
-    // ===== Construtores =====
-    public Produto() {}  // ✅ Obrigatório para JPA
-    
-    public Produto(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
+	@Id  // Chave primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremento
+	@Column(name = "id_produto")
+	private int id;
 
-    // ===== Getters e Setters =====
-    public int getId() {
-        return id;
-    }
+	@Column(name = "nome_produto", nullable = false, length = 100)  // Obrigatório, máx 100 caracteres
+	private String nome;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	@Column(name = "preco_produto", nullable = false)  // Obrigatório
+	private double preco;
 
-    public String getNome() {
-        return nome;
-    }
+	public Produto() {}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Produto(String nome, double preco) {
+		this.nome = nome;
+		this.preco = preco;
+	}
 
-    public double getPreco() {
-        return preco;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", preco=" + String.format("%.2f", preco) +
-                '}';
-    }
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+	@Override
+	public String toString() {
+		return "Produto{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				", preco=" + String.format("%.2f", preco) +
+				'}';
+	}
 }
