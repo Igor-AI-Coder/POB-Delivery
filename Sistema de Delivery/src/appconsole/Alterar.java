@@ -1,56 +1,65 @@
 package appconsole;
 
 import java.util.List;
-import com.db4o.ObjectContainer;
-import com.db4o.query.Query;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import modelo.Cliente;
 import modelo.Pedido;
 import util.Util;
 
 public class Alterar {
-    private ObjectContainer manager;
 
     public Alterar() {
         Util.conectar();
-        manager = Util.getManager();
+        EntityManager manager = Util.getManager();
 
-        // remover pedido de ID 1 do cliente "João"
+        try {
+            // Inicia a transação
+            manager.getTransaction().begin();
 
-        Query q = manager.query();
-        q.constrain(Cliente.class);
-        q.descend("nome").constrain("João").like();
-        List<Cliente> resultados = q.execute();
-
-        if (resultados.size() > 0) {
-            Cliente cliente = resultados.get(0);
-            System.out.println("Cliente encontrado: " + cliente);
-
-            Pedido pedidoParaRemover = null;
+            System.out.println("Buscando pedidos do cliente 'João'...");
             
-            // Procura o pedido alvo dentro da lista do cliente
-            for (Pedido p : cliente.getPedidos()) {
-                if (p.getId() == 1) {
-                    pedidoParaRemover = p;
-                    break;
-                }
-            }
+            // Lembrar que o JPQL faz um JOIN automático por debaixo dos panos.
+            String jpql = "select p from Pedido p where p.cliente.nome like :nome";
+            TypedQuery<Pedido> query = manager.createQuery(jpql, Pedido.class);
+            query.setParameter("nome", "%João%");
+            
+            List<Pedido> pedidosDoJoao = query.getResultList();
 
-            if (pedidoParaRemover != null) {
-                cliente.removerPedido(pedidoParaRemover);
-                manager.store(cliente);
-                manager.delete(pedidoParaRemover);
-                manager.commit();
+            if (!pedidosDoJoao.isEmpty()) {
                 
-                System.out.println("O pedido foi desvinculado do cliente com sucesso.");
-                System.out.println(cliente);
-            } else {
-                System.out.println("Pedido nao encontrado na lista deste cliente");
-            }
-        } else {
-            System.out.println("Cliente nao encontrado");
-        }
+                // Pega o primeiro pedido retornado na busca
+                Pedido pedidoParaRemover = pedidosDoJoao.get(0);
+                
+                System.out.println("Pedido encontrado: #" + pedidoParaRemover.getId());
+                
+                // Remove o pedido da lista do cliente na memória
+                Cliente cliente = pedidoParaRemover.getCliente();
+                if (cliente != null && cliente.getPedidos() != null) {
+                    cliente.removerPedido(pedidoParaRemover);
+                }
 
-        Util.desconectar();
+                // Remove de fato o pedido do banco de dados
+                manager.remove(pedidoParaRemover); 
+                
+                manager.getTransaction().commit();
+                
+                System.out.println("O pedido foi removido com sucesso.");
+            } else {
+                System.out.println("Nenhum pedido encontrado para este cliente no banco de dados.");
+                manager.getTransaction().rollback(); 
+            }
+
+        } catch (Exception e) {
+            if (manager.getTransaction().isActive()) {
+                manager.getTransaction().rollback();
+            }
+            System.out.println("Erro ao alterar: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            Util.desconectar();
+        }
     }
 
     public static void main(String[] args) {

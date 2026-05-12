@@ -2,70 +2,67 @@ package appconsole;
 
 import java.util.List;
 
-import com.db4o.ObjectContainer;
-import com.db4o.query.Query;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import modelo.Cliente;
 import modelo.Pedido;
 import modelo.Produto;
 import util.Util;
 
 public class Listar {
-	private ObjectContainer manager;
 
-	public Listar(){
-		Util.conectar();
-		manager = Util.getManager();
-		
-		// ===== LISTA DE PRODUTOS =====
-		System.out.println("-------Lista de Produtos--------");
-		Query q = manager.query();
-		q.constrain(Produto.class);  				
-		List<Produto> resultadosProdutos = q.execute();
-		for (Produto prod : resultadosProdutos) {
-			System.out.println(prod);
-		}
-		
-		// ===== LISTA DE CLIENTES =====
-		System.out.println("\n-------Lista de Clientes--------");
-		Query q2 = manager.query();
-		q2.constrain(Cliente.class);  				
-		List<Cliente> resultadosClientes = q2.execute();
-		for (Cliente cli : resultadosClientes) {
-			System.out.println("Cliente: " + cli.getNome());
-			System.out.println("Endereço: " + cli.getEndereco());
-			System.out.println("Pedidos: " + cli.getPedidos().size());
-			for (Pedido pedido : cli.getPedidos()) {
-				System.out.println("  - Pedido #" + pedido.getId() + 
-					" (" + pedido.getData() + ") - Total: R$ " + pedido.calcularTotal());
+	public Listar() {
+		try {
+			Util.conectar();
+			EntityManager manager = Util.getManager();
+
+			System.out.println("------- Lista de Produtos --------");
+
+			TypedQuery<Produto> q1 = manager.createQuery("SELECT p FROM Produto p", Produto.class);
+			List<Produto> resultadosProdutos = q1.getResultList();
+			for (Produto prod : resultadosProdutos) {
+				System.out.println(prod);
 			}
-			System.out.println();
-		}
-		
-		// ===== LISTA DE PEDIDOS =====
-		System.out.println("\n-------Lista de Pedidos--------");
-		Query q3 = manager.query();
-		q3.constrain(Pedido.class);  				
-		List<Pedido> resultadosPedidos = q3.execute();
-		for (Pedido ped : resultadosPedidos) {
-			System.out.println("Pedido #" + ped.getId());
-			System.out.println("Data: " + ped.getData());
-			System.out.println("Cliente: " + ped.getCliente().getNome());
-			System.out.println("Produtos: " + ped.getProdutos().size());
-			for (Produto prod : ped.getProdutos()) {
-				System.out.println("  - " + prod.getNome() + " (R$ " + prod.getPreco() + ")");
+
+			System.out.println("\n------- Lista de Clientes --------");
+			TypedQuery<Cliente> q2 = manager.createQuery("SELECT c FROM Cliente c", Cliente.class);
+			List<Cliente> resultadosClientes = q2.getResultList();
+			for (Cliente cli : resultadosClientes) {
+				System.out.println("Cliente: " + cli.getNome());
+				System.out.println("Endereço: " + cli.getEndereco());
+				System.out.println("Pedidos: " + cli.getPedidos().size());
+				for (Pedido pedido : cli.getPedidos()) {
+					System.out.println("  - Pedido #" + pedido.getId() + 
+						" | Data: " + pedido.getData() + " | Total: R$ " + String.format("%.2f", pedido.calcularTotal()));
+				}
+				System.out.println();
 			}
-			System.out.println("Total: R$ " + ped.calcularTotal());
-			System.out.println();
+
+			System.out.println("------- Lista de Pedidos --------");
+			TypedQuery<Pedido> q3 = manager.createQuery("SELECT p FROM Pedido p", Pedido.class);
+			List<Pedido> resultadosPedidos = q3.getResultList();
+			for (Pedido ped : resultadosPedidos) {
+				System.out.println("Pedido #" + ped.getId());
+				System.out.println("Data: " + ped.getData());
+				System.out.println("Cliente: " + ped.getCliente().getNome());
+				System.out.println("Produtos: " + ped.getProdutos().size());
+				for (Produto prod : ped.getProdutos()) {
+					System.out.println("  - " + prod.getNome() + " (R$ " + String.format("%.2f", prod.getPreco()) + ")");
+				}
+				System.out.println("Total: R$ " + String.format("%.2f", ped.calcularTotal()));
+				System.out.println();
+			}
+
+		} catch (Exception e) {
+			System.out.println("ERRO: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			Util.desconectar();
 		}
 		
-		Util.desconectar();
-		
-		System.out.println("\n\n aviso: feche sempre o plugin OME antes de executar aplicação");
+		System.out.println("fim do programa");
 	}
 
-	
-	//=================================================
 	public static void main(String[] args) {
 		new Listar();
 	}
