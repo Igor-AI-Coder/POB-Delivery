@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity  // Marca esta classe como tabela no banco
-@Table(name = "cliente")
+@Table(name = "cliente20242370034")
 public class Cliente {
 
 	@Id  // Chave primária

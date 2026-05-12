@@ -17,7 +17,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity  // Marca esta classe como tabela no banco
-@Table(name = "pedido")  // Nome da tabela
+@Table(name = "pedido20242370034")  // Nome da tabela
 public class Pedido {
 
 	@Id  // Chave primária
@@ -36,7 +36,7 @@ public class Pedido {
 	// N pedidos para N produtos (tabela de junção)
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(
-		name = "pedido_produto",  // Nome da tabela de junção
+		name = "pedido_produto20242370034",  // Nome da tabela de junção
 		joinColumns = @JoinColumn(name = "pedido_id"),
 		inverseJoinColumns = @JoinColumn(name = "produto_id")
 	)

@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity  // Marca esta classe como tabela no banco
-@Table(name = "produto")
+@Table(name = "produto20242370034")
 public class Produto {
 
 	@Id  // Chave primária
