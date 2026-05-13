@@ -29,7 +29,7 @@ public class Cliente {
 
 	// 1 cliente para N pedidos
 	@OneToMany(mappedBy = "cliente",  // Referencia o atributo 'cliente' em Pedido
-			   cascade = {CascadeType.PERSIST, CascadeType.MERGE},  // Propaga operações
+			   cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},  // Propaga operações
 			   orphanRemoval = true)  // Remove pedidos órfãos
 	private List<Pedido> pedidos = new ArrayList<>();
 

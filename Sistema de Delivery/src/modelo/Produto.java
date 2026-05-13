@@ -13,13 +13,11 @@ public class Produto {
 
 	@Id  // Chave primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremento
-	@Column(name = "id_produto")
+	
 	private int id;
-
-	@Column(name = "nome_produto", nullable = false, length = 100)  // Obrigatório, máx 100 caracteres
+	
 	private String nome;
-
-	@Column(name = "preco_produto", nullable = false)  // Obrigatório
+	
 	private double preco;
 
 	public Produto() {}
