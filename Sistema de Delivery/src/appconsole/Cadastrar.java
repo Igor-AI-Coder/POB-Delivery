@@ -20,7 +20,7 @@ public class Cadastrar {
 			// Cadastra 5 produtos
 			Produto[] produtos = new Produto[5];
 			produtos[0] = new Produto("Pizza", 85.00);
-			produtos[1] = new Produto("Sanduíche", 28.00);
+			produtos[1] = new Produto("Sanduíche", 50.99);
 			produtos[2] = new Produto("Pastel", 15.00);
 			produtos[3] = new Produto("Coxinha", 12.00);
 			produtos[4] = new Produto("Refrigerante", 8.00);
@@ -38,8 +38,8 @@ public class Cadastrar {
 			Cliente c1 = new Cliente("João Silva", "Rua A, 123");
 			
 			c1.adicionarPedido(new Pedido(LocalDate.of(2024, 1, 15), c1));
-			c1.getPedidos().get(0).adicionarProduto(produtos[0]);  // Pizza
-			c1.getPedidos().get(0).adicionarProduto(produtos[1]);  // Sanduíche
+			c1.getPedidos().get(0).adicionarProduto(produtos[4]);  // Refrigerante
+			c1.getPedidos().get(0).adicionarProduto(produtos[2]);  // Pastel
 			
 			c1.adicionarPedido(new Pedido(LocalDate.of(2024, 1, 20), c1));
 			c1.getPedidos().get(1).adicionarProduto(produtos[0]);  // Pizza
@@ -49,6 +49,10 @@ public class Cadastrar {
 			c1.getPedidos().get(2).adicionarProduto(produtos[0]);  // Pizza
 			c1.getPedidos().get(2).adicionarProduto(produtos[3]);  // Coxinha
 			
+			c1.adicionarPedido(new Pedido(LocalDate.of(2024, 1, 30), c1));
+			c1.getPedidos().get(3).adicionarProduto(produtos[0]);  // Pizza
+			
+			
 			manager.persist(c1);
 			manager.getTransaction().commit();
 
@@ -57,7 +61,7 @@ public class Cadastrar {
 			Cliente c2 = new Cliente("Maria Santos", "Rua B, 456");
 			
 			c2.adicionarPedido(new Pedido(LocalDate.of(2024, 2, 10), c2));
-			c2.getPedidos().get(0).adicionarProduto(produtos[0]);  // Pizza
+			c2.getPedidos().get(0).adicionarProduto(produtos[3]);  // Coxinha
 			c2.getPedidos().get(0).adicionarProduto(produtos[4]);  // Refrigerante
 			
 			c2.adicionarPedido(new Pedido(LocalDate.of(2024, 2, 15), c2));
@@ -72,7 +76,7 @@ public class Cadastrar {
 			Cliente c3 = new Cliente("José Oliveira", "Rua C, 789");
 			
 			c3.adicionarPedido(new Pedido(LocalDate.of(2024, 2, 20), c3));
-			c3.getPedidos().get(0).adicionarProduto(produtos[0]);  // Pizza
+			c3.getPedidos().get(0).adicionarProduto(produtos[1]);  // Sanduíche
 			c3.getPedidos().get(0).adicionarProduto(produtos[2]);  // Pastel
 			
 			manager.persist(c3);

@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import modelo.Cliente;
 import modelo.Pedido;
+import modelo.Produto;
 import util.Util;
 
 public class Consultar {
@@ -35,7 +36,10 @@ public class Consultar {
             List<Pedido> resultados2 = q2.getResultList();
 
             for (Pedido p : resultados2) {
-                System.out.println(p);
+                System.out.println("Pedido ID: " + p.getId());
+                for (Produto prod : p.getProdutos()) {
+                    System.out.println("  - Produto: " + prod.getNome() + " | Preço: R$ " + String.format("%.2f", prod.getPreco()));
+                }
             }
 
             System.out.println("\n--- 3. Quais os clientes que tem mais de 2 pedidos do produto 'Pizza' ---");
@@ -51,12 +55,15 @@ public class Consultar {
 
             for (Cliente cliente : resultados3) {
                 System.out.println("Cliente: " + cliente.getNome());
+
                 for (Pedido pedido : cliente.getPedidos()) {
-                    // Só pra mostrar no console os pedidos desse cara
-                    System.out.println("  - Pedido #" + pedido.getId() + " | Data: " + pedido.getData() + " | Total: R$ " + String.format("%.2f", pedido.calcularTotal()));
+                    System.out.println("  - Pedido ID: " + pedido.getId());
+
+                    for (Produto prod : pedido.getProdutos()) {
+                        System.out.println("      * Produto: " + prod.getNome());
+                    }
                 }
             }
-
         } catch (Exception e) {
             System.out.println("Erro na consulta: " + e.getMessage());
             e.printStackTrace();

@@ -39,7 +39,7 @@ public class Alterar {
                     
                     cliente.removerPedido(pedidoParaRemover);
 
-                    manager.remove(pedidoParaRemover); 
+                    //manager.remove(pedidoParaRemover); não é necessário remover o pedido diretamente, pois a relação já é gerenciada pelo cliente e o cascade remove irá cuidar disso
                     
                     manager.getTransaction().commit();
                     System.out.println("O pedido foi removido com sucesso.");

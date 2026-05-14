@@ -12,19 +12,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-@Entity  // Marca esta classe como tabela no banco
+@Entity 
 @Table(name = "cliente20242370034")
 public class Cliente {
 
-	@Id  // Chave primária
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremento
-	@Column(name = "id_cliente")
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  
 	private int id;
 
-	@Column(name = "nome_cliente", nullable = false)  // Obrigatório
 	private String nome;
 
-	@Column(name = "endereco_cliente")
 	private String endereco;
 
 	// 1 cliente para N pedidos
