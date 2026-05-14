@@ -15,39 +15,42 @@ public class Alterar {
         EntityManager manager = Util.getManager();
 
         try {
-            // Inicia a transação
             manager.getTransaction().begin();
 
-            System.out.println("Buscando pedidos do cliente 'João'...");
+            System.out.println("Buscando pelo cliente 'João'...");
             
-            // Lembrar que o JPQL faz um JOIN automático por debaixo dos panos.
-            String jpql = "select p from Pedido p where p.cliente.nome like :nome";
-            TypedQuery<Pedido> query = manager.createQuery(jpql, Pedido.class);
+            //JPQL: Agora busca direto cliente
+            String jpql = "select c from Cliente c where c.nome like :nome";
+            TypedQuery<Cliente> query = manager.createQuery(jpql, Cliente.class);
             query.setParameter("nome", "%João%");
             
-            List<Pedido> pedidosDoJoao = query.getResultList();
+            List<Cliente> clientesEncontrados = query.getResultList();
 
-            if (!pedidosDoJoao.isEmpty()) {
+            if (!clientesEncontrados.isEmpty()) { //verifica se existe o cliente
                 
-                // Pega o primeiro pedido retornado na busca
-                Pedido pedidoParaRemover = pedidosDoJoao.get(0);
+                Cliente cliente = clientesEncontrados.get(0);
+                System.out.println("Cliente encontrado: " + cliente.getNome());
                 
-                System.out.println("Pedido encontrado: #" + pedidoParaRemover.getId());
-                
-                // Remove o pedido da lista do cliente na memória
-                Cliente cliente = pedidoParaRemover.getCliente();
-                if (cliente != null && cliente.getPedidos() != null) {
+                if (cliente.getPedidos() != null && !cliente.getPedidos().isEmpty()) { //verifica se o cliente tem algum pedido cadastrado
+                    
+                    Pedido pedidoParaRemover = cliente.getPedidos().get(0);
+                    
+                    System.out.println("Pedido encontrado para remoção: #" + pedidoParaRemover.getId());
+                    
                     cliente.removerPedido(pedidoParaRemover);
+
+                    manager.remove(pedidoParaRemover); 
+                    
+                    manager.getTransaction().commit();
+                    System.out.println("O pedido foi removido com sucesso.");
+                    
+                } else {
+                    System.out.println("O cliente encontrado não possui nenhum pedido cadastrado.");
+                    manager.getTransaction().rollback();
                 }
 
-                // Remove de fato o pedido do banco de dados
-                manager.remove(pedidoParaRemover); 
-                
-                manager.getTransaction().commit();
-                
-                System.out.println("O pedido foi removido com sucesso.");
             } else {
-                System.out.println("Nenhum pedido encontrado para este cliente no banco de dados.");
+                System.out.println("Nenhum cliente com esse nome foi encontrado no banco de dados.");
                 manager.getTransaction().rollback(); 
             }
 

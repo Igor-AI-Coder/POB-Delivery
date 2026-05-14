@@ -29,9 +29,8 @@ public class Consultar {
 
             System.out.println("\n--- 2. Quais os pedidos contendo produto de preco > 50.0 ---");
             // JPQL com JOIN pra acessar a lista de produtos lá de dentro 
-            // Usando distinct pra não repetir o pedido se ele tiver mais de um produto caro
             TypedQuery<Pedido> q2 = manager.createQuery(
-                "select distinct p from Pedido p JOIN p.produtos prod where prod.preco > :preco", Pedido.class);
+                "select p from Pedido p JOIN p.produtos prod where prod.preco > :preco", Pedido.class);
             q2.setParameter("preco", 50.0);
             List<Pedido> resultados2 = q2.getResultList();
 

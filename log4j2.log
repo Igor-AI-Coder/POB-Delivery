@@ -1,0 +1,786 @@
+2026-05-14 03:45:09 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:45:09 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:45:10 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:45:10 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.data=?
+2026-05-14 03:45:10 [main] TRACE bind - binding parameter (1:DATE) <- [2024-01-15]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.preco>?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:DOUBLE) <- [50.0]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    join
+        pedido20242370034 p1_0 
+            on c1_0.id_cliente=p1_0.cliente_id_cliente 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.nome='Pizza' 
+    group by
+        c1_0.id_cliente 
+    having
+        count(p1_0.id)>2
+2026-05-14 03:45:11 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:45:11 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:45:11 [main] INFO  Util - Banco desconectado
+2026-05-14 03:45:55 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:45:56 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:45:57 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.data=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:DATE) <- [2024-01-15]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.preco>?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:DOUBLE) <- [50.0]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    join
+        pedido20242370034 p1_0 
+            on c1_0.id_cliente=p1_0.cliente_id_cliente 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.nome='Pizza' 
+    group by
+        c1_0.id_cliente 
+    having
+        count(p1_0.id)>2
+2026-05-14 03:45:57 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:45:57 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:45:57 [main] INFO  Util - Banco desconectado
+2026-05-14 03:46:13 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:46:13 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:46:14 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.data=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:DATE) <- [2024-01-15]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.preco>?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:DOUBLE) <- [50.0]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    join
+        pedido20242370034 p1_0 
+            on c1_0.id_cliente=p1_0.cliente_id_cliente 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.nome='Pizza' 
+    group by
+        c1_0.id_cliente 
+    having
+        count(p1_0.id)>2
+2026-05-14 03:46:15 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:46:15 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:46:15 [main] INFO  Util - Banco desconectado
+2026-05-14 03:46:34 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:46:34 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:46:36 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.data=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:DATE) <- [2024-01-15]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id_cliente,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.preco>?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:DOUBLE) <- [50.0]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.id_cliente=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    join
+        pedido20242370034 p1_0 
+            on c1_0.id_cliente=p1_0.cliente_id_cliente 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.nome='Pizza' 
+    group by
+        c1_0.id_cliente 
+    having
+        count(p1_0.id)>2
+2026-05-14 03:46:36 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:46:36 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:46:36 [main] INFO  Util - Banco desconectado
+2026-05-14 03:47:17 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:47:17 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:47:18 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:47:19 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.nome_cliente like ? escape ''
+2026-05-14 03:47:19 [main] TRACE bind - binding parameter (1:VARCHAR) <- [%João%]
+2026-05-14 03:47:19 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:47:19 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:47:19 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-05-14 03:47:19 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:47:19 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-05-14 03:47:19 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:47:19 [main] INFO  Util - Banco desconectado
+2026-05-14 03:56:06 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:56:06 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:56:08 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:56:08 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.nome_cliente like ? escape ''
+2026-05-14 03:56:08 [main] TRACE bind - binding parameter (1:VARCHAR) <- [%João%]
+2026-05-14 03:56:08 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:56:08 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:56:08 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-05-14 03:56:08 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:56:08 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-05-14 03:56:08 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-14 03:56:08 [main] INFO  Util - Banco desconectado
+2026-05-14 03:56:11 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:56:12 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:56:13 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:56:13 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.nome_cliente like ? escape ''
+2026-05-14 03:56:13 [main] TRACE bind - binding parameter (1:VARCHAR) <- [%João%]
+2026-05-14 03:56:13 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:56:13 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:56:13 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-05-14 03:56:13 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:56:13 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-05-14 03:56:13 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-05-14 03:56:13 [main] INFO  Util - Banco desconectado
+2026-05-14 03:56:19 [main] INFO  Util - Conectando postgresql
+2026-05-14 03:56:19 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-14 03:56:20 [main] INFO  Util - Banco conectado com sucesso
+2026-05-14 03:56:21 [main] DEBUG SQL - 
+    select
+        c1_0.id_cliente,
+        c1_0.endereco_cliente,
+        c1_0.nome_cliente 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.nome_cliente like ? escape ''
+2026-05-14 03:56:21 [main] TRACE bind - binding parameter (1:VARCHAR) <- [%João%]
+2026-05-14 03:56:21 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id_cliente,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id_cliente=?
+2026-05-14 03:56:21 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-14 03:56:21 [main] INFO  Util - Banco desconectado
