@@ -25,11 +25,11 @@ public class Cadastrar {
 			produtos[3] = new Produto("Coxinha", 12.00);
 			produtos[4] = new Produto("Refrigerante", 8.00);
 
+			manager.getTransaction().begin();
 			for (Produto p : produtos) {
-				manager.getTransaction().begin();
-				manager.persist(p);  // Insere no banco
-				manager.getTransaction().commit();  // Confirma a operação
+				manager.persist(p);  
 			}
+			manager.getTransaction().commit();
 
 			System.out.println("✓ 5 produtos cadastrados");
 
