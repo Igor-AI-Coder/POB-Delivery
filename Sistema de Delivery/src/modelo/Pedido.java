@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.FetchType;
 
 @Entity  // Marca esta classe como tabela no banco
 @Table(name = "pedido20242370034")  // Nome da tabela (pode manter se o professor quiser nome específico)
@@ -24,11 +25,11 @@ public class Pedido {
     private LocalDate data;
 
     // N pedidos para 1 cliente
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE} , fetch = FetchType.LAZY)
     private Cliente cliente;
 
     // N pedidos para N produtos (tabela de junção)
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<Produto> produtos = new ArrayList<>();
 
     public Pedido() {}

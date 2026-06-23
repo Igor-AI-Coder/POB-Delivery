@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.FetchType;
 
 @Entity 
 @Table(name = "cliente20242370034")
@@ -27,7 +28,7 @@ public class Cliente {
 	// 1 cliente para N pedidos
 	@OneToMany(mappedBy = "cliente",  // Referencia o atributo 'cliente' em Pedido
 			   cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},  // Propaga operações
-			   orphanRemoval = true)  // Remove pedidos órfãos
+			   orphanRemoval = true, fetch = FetchType.LAZY)  // Remove pedidos órfãos
 	private List<Pedido> pedidos = new ArrayList<>();
 
 	public Cliente() {}

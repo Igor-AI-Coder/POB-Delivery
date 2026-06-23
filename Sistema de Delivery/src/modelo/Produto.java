@@ -7,18 +7,32 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import jakarta.persistence.Lob;
+import jakarta.persistence.Basic;
+import jakarta.persistence.FetchType;
+
 @Entity  // Marca esta classe como tabela no banco
 @Table(name = "produto20242370034")
 public class Produto {
 
 	@Id  // Chave primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremento
-	
 	private int id;
 	
 	private String nome;
 	
 	private double preco;
+	
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	private byte[] foto;
+	
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+	public byte[] getFoto() {
+		return foto;
+	}
 
 	public Produto() {}
 
