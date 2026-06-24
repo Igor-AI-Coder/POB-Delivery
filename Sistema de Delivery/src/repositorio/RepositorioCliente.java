@@ -10,7 +10,7 @@ public class RepositorioCliente extends Repositorio<Cliente> {
 
     @Override
     public Cliente localizar(Object chave) {
-        // Busca pelo nome exato do cliente (útil para validações de unicidade na Fachada)
+        // Busca pelo nome exato do cliente 
         if (chave instanceof String) {
             String nome = (String) chave;
             TypedQuery<Cliente> q = Util.getManager().createQuery(
@@ -23,7 +23,7 @@ public class RepositorioCliente extends Repositorio<Cliente> {
                 return null; 
             }
         } 
-        // Busca pelo ID numérico padrão (usado nas operações básicas de CRUD)
+        // Busca pelo ID numérico padrão 
         else if (chave instanceof Integer) {
             try {
                 int id = (int) chave;
@@ -42,7 +42,7 @@ public class RepositorioCliente extends Repositorio<Cliente> {
         return q.getResultList();
     }
     
-    // --- Consultas JPQL Específicas (Opcional, seguindo o padrão do RepositorioPedido) ---
+    // Consultas JPQL Específicas
     
     /**
      * Consulta: Quais clientes possuem um determinado texto no endereço?
