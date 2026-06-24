@@ -43,7 +43,6 @@ public class Consultar {
             }
 
             System.out.println("\n--- 3. Quais os clientes que tem mais de 2 pedidos do produto 'Pizza' ---");
-            // Matamos a classe de filtro!
             // Usamos JOIN pra ligar Cliente -> Pedido -> Produto
             // E o GROUP BY com HAVING pra contar os pedidos 
             TypedQuery<Cliente> q3 = manager.createQuery(

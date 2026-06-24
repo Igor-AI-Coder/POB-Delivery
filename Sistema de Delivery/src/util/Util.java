@@ -41,7 +41,7 @@ public class Util {
 			logger.info("Conectando " + sgbd);
 
 			if (sgbd.equals("postgresql")) {
-				String url = "jdbc:" + sgbd + "://" + ipatual + ":5432/" + banco;
+				String url = "jdbc:" + sgbd + "://" + ipatual + ":5433/" + banco;
 				factory = criarFactory(url, usuario, senha);
 			} else if (sgbd.equals("mysql")) {
 				String url = "jdbc:" + sgbd + "://" + ipatual + ":3306/" + banco;
