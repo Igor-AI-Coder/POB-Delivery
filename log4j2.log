@@ -1,0 +1,2316 @@
+2026-06-24 11:15:04 [main] INFO  Util - Conectando postgresql
+2026-06-24 11:15:05 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 11:15:05 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Alterar.<init>(Alterar.java:14)
+	at appconsole.Alterar.main(Alterar.java:66)
+2026-06-24 11:43:11 [main] INFO  Util - Conectando postgresql
+2026-06-24 11:43:11 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 11:43:11 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Consultar.<init>(Consultar.java:16)
+	at appconsole.Consultar.main(Consultar.java:75)
+2026-06-24 11:53:26 [main] INFO  Util - Conectando postgresql
+2026-06-24 11:53:27 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 11:53:27 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 11:53:38 [main] INFO  Util - Conectando postgresql
+2026-06-24 11:53:38 [main] INFO  Util - Conectando postgresql
+2026-06-24 11:53:39 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 11:53:39 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Listar.<init>(Listar.java:16)
+	at appconsole.Listar.main(Listar.java:67)
+2026-06-24 11:53:39 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 11:53:39 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Listar.<init>(Listar.java:16)
+	at appconsole.Listar.main(Listar.java:67)
+2026-06-24 12:01:19 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:01:20 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:01:20 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Listar.<init>(Listar.java:16)
+	at appconsole.Listar.main(Listar.java:67)
+2026-06-24 12:25:44 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:25:45 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:25:45 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 12:32:43 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:32:44 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:32:44 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Listar.<init>(Listar.java:16)
+	at appconsole.Listar.main(Listar.java:67)
+2026-06-24 12:33:52 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:33:53 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:33:53 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 12:37:16 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:37:16 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:37:16 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 12:41:46 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:41:46 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:41:46 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 12:43:41 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:43:41 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:43:41 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 12:44:39 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:44:39 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:44:40 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 12:46:39 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:46:39 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:46:39 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Alterar.<init>(Alterar.java:14)
+	at appconsole.Alterar.main(Alterar.java:66)
+2026-06-24 12:48:47 [main] INFO  Util - Conectando postgresql
+2026-06-24 12:48:48 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 12:48:48 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 13:00:06 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:00:06 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:00:06 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Listar.<init>(Listar.java:16)
+	at appconsole.Listar.main(Listar.java:67)
+2026-06-24 13:02:01 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:02:01 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:02:01 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Deletar.<init>(Deletar.java:12)
+	at appconsole.Deletar.main(Deletar.java:48)
+2026-06-24 13:09:05 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:09:05 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:09:06 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Cadastrar.<init>(Cadastrar.java:15)
+	at appconsole.Cadastrar.main(Cadastrar.java:97)
+2026-06-24 13:09:18 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:09:18 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:09:18 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Alterar.<init>(Alterar.java:14)
+	at appconsole.Alterar.main(Alterar.java:66)
+2026-06-24 13:09:36 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:09:36 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:09:36 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Alterar.<init>(Alterar.java:14)
+	at appconsole.Alterar.main(Alterar.java:66)
+2026-06-24 13:10:21 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:10:22 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:10:22 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Consultar.<init>(Consultar.java:16)
+	at appconsole.Consultar.main(Consultar.java:75)
+2026-06-24 13:12:31 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:12:31 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:12:31 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Consultar.<init>(Consultar.java:16)
+	at appconsole.Consultar.main(Consultar.java:75)
+2026-06-24 13:13:36 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:13:37 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:13:37 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Deletar.<init>(Deletar.java:12)
+	at appconsole.Deletar.main(Deletar.java:48)
+2026-06-24 13:15:49 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:15:49 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    create table cliente20242370034 (
+        id integer generated by default as identity,
+        endereco varchar(255),
+        nome varchar(255),
+        primary key (id)
+    )
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    create table pedido20242370034 (
+        id integer generated by default as identity,
+        data date,
+        cliente_id integer,
+        primary key (id)
+    )
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    create table pedido20242370034_produto20242370034 (
+        Pedido_id integer not null,
+        produtos_id integer not null
+    )
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    create table produto20242370034 (
+        id integer generated by default as identity,
+        foto oid,
+        nome varchar(255),
+        preco float(53) not null,
+        primary key (id)
+    )
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    alter table if exists pedido20242370034 
+       add constraint FK8bpm472xiicvblysl84r02l8i 
+       foreign key (cliente_id) 
+       references cliente20242370034
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    alter table if exists pedido20242370034_produto20242370034 
+       add constraint FKrprvs5v2c040ycergc2ymc1rg 
+       foreign key (produtos_id) 
+       references produto20242370034
+2026-06-24 13:15:51 [main] DEBUG SQL - 
+    alter table if exists pedido20242370034_produto20242370034 
+       add constraint FKo8ltx4v3gh9bwj5xbwu7mf6wi 
+       foreign key (Pedido_id) 
+       references pedido20242370034
+2026-06-24 13:15:51 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:15:52 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.data=?
+2026-06-24 13:15:52 [main] TRACE bind - binding parameter (1:DATE) <- [2024-01-15]
+2026-06-24 13:15:52 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.preco>?
+2026-06-24 13:15:52 [main] TRACE bind - binding parameter (1:DOUBLE) <- [50.0]
+2026-06-24 13:15:52 [main] DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.endereco,
+        c1_0.nome 
+    from
+        cliente20242370034 c1_0 
+    join
+        pedido20242370034 p1_0 
+            on c1_0.id=p1_0.cliente_id 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.nome='Pizza' 
+    group by
+        c1_0.id 
+    having
+        count(p1_0.id)>2
+2026-06-24 13:15:52 [main] INFO  Util - Banco desconectado
+2026-06-24 13:16:34 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:16:35 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:16:36 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:16:37 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.data=?
+2026-06-24 13:16:37 [main] TRACE bind - binding parameter (1:DATE) <- [2024-01-15]
+2026-06-24 13:16:37 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.preco>?
+2026-06-24 13:16:37 [main] TRACE bind - binding parameter (1:DOUBLE) <- [50.0]
+2026-06-24 13:16:37 [main] DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.endereco,
+        c1_0.nome 
+    from
+        cliente20242370034 c1_0 
+    join
+        pedido20242370034 p1_0 
+            on c1_0.id=p1_0.cliente_id 
+    join
+        pedido20242370034_produto20242370034 p2_0 
+            on p1_0.id=p2_0.Pedido_id 
+    join
+        produto20242370034 p2_1 
+            on p2_1.id=p2_0.produtos_id 
+    where
+        p2_1.nome='Pizza' 
+    group by
+        c1_0.id 
+    having
+        count(p1_0.id)>2
+2026-06-24 13:16:37 [main] INFO  Util - Banco desconectado
+2026-06-24 13:16:45 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:16:45 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:16:47 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Pizza]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (3:DOUBLE) <- [85.0]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Sanduíche]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (3:DOUBLE) <- [50.99]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Pastel]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (3:DOUBLE) <- [15.0]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Coxinha]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (3:DOUBLE) <- [12.0]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Refrigerante]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (3:DOUBLE) <- [8.0]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        cliente20242370034
+        (endereco, nome) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Rua A, 123]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [João Silva]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-15]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-20]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-25]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-30]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [5]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [3]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [3]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [4]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [1]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        cliente20242370034
+        (endereco, nome) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Rua B, 456]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Maria Santos]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-02-10]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-02-15]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [4]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [5]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [2]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [4]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        cliente20242370034
+        (endereco, nome) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Rua C, 789]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:VARCHAR) <- [José Oliveira]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:DATE) <- [2024-02-20]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [7]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [2]
+2026-06-24 13:16:47 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (1:INTEGER) <- [7]
+2026-06-24 13:16:47 [main] TRACE bind - binding parameter (2:INTEGER) <- [3]
+2026-06-24 13:16:47 [main] INFO  Util - Banco desconectado
+2026-06-24 13:16:53 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:16:53 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:16:55 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.endereco,
+        c1_0.nome 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.nome like ? escape ''
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:VARCHAR) <- [%João%]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:16:55 [main] DEBUG SQL - 
+    delete 
+    from
+        cliente20242370034 
+    where
+        id=?
+2026-06-24 13:16:55 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-06-24 13:16:55 [main] INFO  Util - Banco desconectado
+2026-06-24 13:18:35 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:18:36 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:18:37 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Pizza]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (3:DOUBLE) <- [85.0]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Sanduíche]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (3:DOUBLE) <- [50.99]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Pastel]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (3:DOUBLE) <- [15.0]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Coxinha]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (3:DOUBLE) <- [12.0]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        produto20242370034
+        (foto, nome, preco) 
+    values
+        (?, ?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:BLOB) <- [null]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Refrigerante]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (3:DOUBLE) <- [8.0]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        cliente20242370034
+        (endereco, nome) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Rua A, 123]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [João Silva]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-15]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-20]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-25]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-01-30]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [8]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [10]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [8]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [8]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [9]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [6]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [9]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [8]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [10]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [6]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [10]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [9]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [11]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [6]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        cliente20242370034
+        (endereco, nome) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Rua B, 456]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [Maria Santos]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-02-10]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-02-15]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [12]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [9]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [12]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [10]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [13]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [7]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [13]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [9]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        cliente20242370034
+        (endereco, nome) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Rua C, 789]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:VARCHAR) <- [José Oliveira]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034
+        (cliente_id, data) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:DATE) <- [2024-02-20]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [14]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [7]
+2026-06-24 13:18:37 [main] DEBUG SQL - 
+    insert 
+    into
+        pedido20242370034_produto20242370034
+        (Pedido_id, produtos_id) 
+    values
+        (?, ?)
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (1:INTEGER) <- [14]
+2026-06-24 13:18:37 [main] TRACE bind - binding parameter (2:INTEGER) <- [8]
+2026-06-24 13:18:37 [main] INFO  Util - Banco desconectado
+2026-06-24 13:18:43 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:18:43 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:18:45 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.foto,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produto20242370034 p1_0
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.endereco,
+        c1_0.nome 
+    from
+        cliente20242370034 c1_0
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [7]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [8]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [9]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [10]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [11]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [12]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [13]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [6]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.Pedido_id,
+        p1_1.id,
+        p1_1.foto,
+        p1_1.nome,
+        p1_1.preco 
+    from
+        pedido20242370034_produto20242370034 p1_0 
+    join
+        produto20242370034 p1_1 
+            on p1_1.id=p1_0.produtos_id 
+    where
+        p1_0.Pedido_id=?
+2026-06-24 13:18:45 [main] TRACE bind - binding parameter (1:INTEGER) <- [14]
+2026-06-24 13:18:45 [main] DEBUG SQL - 
+    select
+        p1_0.id,
+        p1_0.cliente_id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0
+2026-06-24 13:18:45 [main] INFO  Util - Banco desconectado
+2026-06-24 13:24:28 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:24:28 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:24:30 [main] INFO  Util - Banco conectado com sucesso
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.endereco,
+        c1_0.nome 
+    from
+        cliente20242370034 c1_0 
+    where
+        c1_0.nome like ? escape ''
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:VARCHAR) <- [%João%]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    select
+        p1_0.cliente_id,
+        p1_0.id,
+        p1_0.data 
+    from
+        pedido20242370034 p1_0 
+    where
+        p1_0.cliente_id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [8]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [9]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [10]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034_produto20242370034 
+    where
+        Pedido_id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [11]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [8]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [9]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [10]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        pedido20242370034 
+    where
+        id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [11]
+2026-06-24 13:24:30 [main] DEBUG SQL - 
+    delete 
+    from
+        cliente20242370034 
+    where
+        id=?
+2026-06-24 13:24:30 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-06-24 13:24:30 [main] INFO  Util - Banco desconectado
+2026-06-24 13:25:10 [main] INFO  Util - Conectando postgresql
+2026-06-24 13:25:10 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-24 13:25:11 [main] WARN  jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:287)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:50)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.buildPool(DriverManagerConnectionProvider.java:130)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProvider.configure(DriverManagerConnectionProvider.java:87)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:139)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:487)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:353)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:174)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:264)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:119)
+	at jakarta.persistence.PersistenceConfiguration.createEntityManagerFactory(PersistenceConfiguration.java:224)
+	at util.Util.criarFactory(Util.java:79)
+	at util.Util.conectar(Util.java:45)
+	at appconsole.Consultar.<init>(Consultar.java:16)
+	at appconsole.Consultar.main(Consultar.java:75)
