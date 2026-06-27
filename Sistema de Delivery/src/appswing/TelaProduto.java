@@ -2,16 +2,21 @@ package appswing;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.nio.file.Files;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -21,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.Produto;
@@ -40,6 +46,12 @@ public class TelaProduto {
     private JButton btnDeletar;
     private JLabel labelStatus;
     
+    // Novos componentes para a Imagem (@Lob)
+    private JLabel labelFoto;
+    private JButton btnEscolherFoto;
+    private JButton btnSalvarFoto;
+    private byte[] fotoAtualEmMemoria; // Guarda os bytes da imagem escolhida temporariamente
+    
     private FachadaProduto fachada;
 
     public TelaProduto() {
@@ -51,7 +63,8 @@ public class TelaProduto {
         frame = new JDialog();
         frame.setModal(true);
         frame.setTitle("Gerenciar Produtos");
-        frame.setBounds(100, 100, 520, 420);
+        // Janela alargada para 700px para caber a foto
+        frame.setBounds(100, 100, 700, 420);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
@@ -63,21 +76,44 @@ public class TelaProduto {
         });
 
         scrollPane = new JScrollPane();
-        scrollPane.setBounds(20, 11, 460, 193);
+        scrollPane.setBounds(20, 20, 460, 190);
         frame.getContentPane().add(scrollPane);
 
         table = new JTable();
-        // Evento seguro para preencher os campos ao clicar em um item
+        // Evento seguro para preencher os campos e carregar a foto ao clicar num item
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int row = table.getSelectedRow();
                 if (row >= 0) {
+                    Object idObj = table.getValueAt(row, 0);
                     Object valNome = table.getValueAt(row, 1);
                     Object valPreco = table.getValueAt(row, 2);
                     
                     textFieldNome.setText(valNome != null ? valNome.toString() : "");
                     textFieldPreco.setText(valPreco != null ? valPreco.toString() : "");
+                    
+                    // Lógica para buscar e exibir a foto
+                    if (idObj != null) {
+                        try {
+                            int id = Integer.parseInt(idObj.toString());
+                            Produto p = fachada.localizarProduto(id);
+                            
+                            fotoAtualEmMemoria = null; // Limpa a memória temporária
+                            if (p != null && p.getFoto() != null) {
+                                ImageIcon icon = new ImageIcon(p.getFoto());
+                                Image img = icon.getImage().getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH);
+                                labelFoto.setIcon(new ImageIcon(img));
+                                labelFoto.setText("");
+                            } else {
+                                labelFoto.setIcon(null);
+                                labelFoto.setText("Sem Imagem");
+                            }
+                        } catch (Exception ex) {
+                            labelFoto.setIcon(null);
+                            labelFoto.setText("Erro ao carregar");
+                        }
+                    }
                 }
             }
         });
@@ -146,12 +182,8 @@ public class TelaProduto {
                         return;
                     }
                     
-                    // Extração de ID com conversão segura
                     Object idObj = table.getValueAt(row, 0);
-                    if (idObj == null) {
-                        labelStatus.setText("Erro: ID inválido.");
-                        return;
-                    }
+                    if (idObj == null) return;
                     int id = Integer.parseInt(idObj.toString());
                     
                     String nome = textFieldNome.getText();
@@ -183,12 +215,8 @@ public class TelaProduto {
                         return;
                     }
                     
-                    // Extração de ID blindada contra nulos e vazios
                     Object idObj = table.getValueAt(row, 0);
-                    if (idObj == null) {
-                        labelStatus.setText("Erro: O produto selecionado possui ID nulo.");
-                        return;
-                    }
+                    if (idObj == null) return;
                     int id = Integer.parseInt(idObj.toString());
                     
                     fachada.deletarProduto(id);
@@ -202,10 +230,68 @@ public class TelaProduto {
         });
         frame.getContentPane().add(btnDeletar);
 
+        // --- SECÇÃO DA IMAGEM ---
+        labelFoto = new JLabel("Sem Imagem");
+        labelFoto.setHorizontalAlignment(SwingConstants.CENTER);
+        labelFoto.setBorder(new LineBorder(Color.GRAY));
+        labelFoto.setBounds(500, 20, 150, 150);
+        frame.getContentPane().add(labelFoto);
+
+        btnEscolherFoto = new JButton("Escolher Foto...");
+        btnEscolherFoto.setBounds(500, 180, 150, 25);
+        btnEscolherFoto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fc = new JFileChooser();
+                fc.setDialogTitle("Selecione a imagem do produto");
+                fc.setFileFilter(new FileNameExtensionFilter("Imagens (*.png, *.jpg, *.jpeg)", "png", "jpg", "jpeg"));
+                
+                int res = fc.showOpenDialog(frame);
+                if (res == JFileChooser.APPROVE_OPTION) {
+                    File file = fc.getSelectedFile();
+                    try {
+                        fotoAtualEmMemoria = Files.readAllBytes(file.toPath());
+                        ImageIcon icon = new ImageIcon(fotoAtualEmMemoria);
+                        Image img = icon.getImage().getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH);
+                        labelFoto.setIcon(new ImageIcon(img));
+                        labelFoto.setText("");
+                        labelStatus.setText("Foto escolhida. Clique em 'Salvar Foto' para guardar no banco.");
+                    } catch (Exception ex) {
+                        labelStatus.setText("Erro ao ler o ficheiro de imagem.");
+                    }
+                }
+            }
+        });
+        frame.getContentPane().add(btnEscolherFoto);
+
+        btnSalvarFoto = new JButton("Salvar Foto BD");
+        btnSalvarFoto.setBounds(500, 215, 150, 25);
+        btnSalvarFoto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int row = table.getSelectedRow();
+                    if (row < 0) {
+                        labelStatus.setText("Selecione um produto na tabela primeiro!");
+                        return;
+                    }
+                    if (fotoAtualEmMemoria == null) {
+                        labelStatus.setText("Escolha uma foto antes de guardar!");
+                        return;
+                    }
+                    
+                    int id = Integer.parseInt(table.getValueAt(row, 0).toString());
+                    fachada.atualizarFoto(id, fotoAtualEmMemoria);
+                    labelStatus.setText("Foto guardada no Banco de Dados com sucesso!");
+                } catch (Exception ex) {
+                    labelStatus.setText("Erro ao guardar foto: " + ex.getMessage());
+                }
+            }
+        });
+        frame.getContentPane().add(btnSalvarFoto);
+
         labelStatus = new JLabel("");
         labelStatus.setFont(new Font("Tahoma", Font.BOLD, 11));
         labelStatus.setForeground(Color.RED);
-        labelStatus.setBounds(20, 310, 460, 14);
+        labelStatus.setBounds(20, 310, 630, 14);
         frame.getContentPane().add(labelStatus);
 
         frame.setVisible(true);
@@ -214,21 +300,22 @@ public class TelaProduto {
     private void limparCampos() {
         textFieldNome.setText("");
         textFieldPreco.setText("");
+        labelFoto.setIcon(null);
+        labelFoto.setText("Sem Imagem");
+        fotoAtualEmMemoria = null;
         table.clearSelection();
     }
 
     public void listagem() {
         try {
-            // Criação do modelo da tabela BLOQUEANDO a edição das células
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable(int row, int column) {
-                    return false; // Retorna false para impedir que a célula vire um campo de texto ao clicar
+                    return false;
                 }
             };
             
             table.setModel(model);
-
             model.addColumn("ID");
             model.addColumn("Nome");
             model.addColumn("Preço (R$)");
