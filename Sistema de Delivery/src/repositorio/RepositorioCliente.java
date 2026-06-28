@@ -54,4 +54,18 @@ public class RepositorioCliente extends Repositorio<Cliente> {
         q.setParameter("x", "%" + textoEndereco + "%");
         return q.getResultList();
     }
+
+    // --- NOVA PARTE DO CÓDIGO ADICIONADA ABAIXO ---
+
+    /**
+     * Consulta 3: Quais os clientes que tem mais de 2 pedidos do produto 'Pizza'
+     */
+    public List<Cliente> buscarClientesMaisDe2PedidosDePizza() {
+        TypedQuery<Cliente> q = Util.getManager().createQuery(
+            "select c from Cliente c JOIN c.pedidos p JOIN p.produtos prod " +
+            "where prod.nome = 'Pizza' " +
+            "GROUP BY c " +
+            "HAVING count(p) > 2", Cliente.class);
+        return q.getResultList();
+    }
 }

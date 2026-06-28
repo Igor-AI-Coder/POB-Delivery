@@ -12,8 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.SwingConstants;
 import javax.swing.JOptionPane;
-
-import util.Util; // Importação essencial para ligar o banco de dados!
+import util.Util;
 
 public class TelaPrincipal {
     private JFrame frame;
@@ -37,8 +36,6 @@ public class TelaPrincipal {
     }
 
     public TelaPrincipal() {
-        // 1. INICIA A CONEXÃO COM O BANCO DE DADOS AQUI!
-        // Sem isso, nenhuma das telas vai conseguir carregar ou criar informações.
         try {
             Util.conectar();
         } catch (Exception e) {
@@ -56,7 +53,6 @@ public class TelaPrincipal {
         frame.getContentPane().setLayout(null);
         frame.setResizable(false);
 
-        // 2. Garante que o banco seja desconectado corretamente quando fechar a janela no "X"
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -73,7 +69,6 @@ public class TelaPrincipal {
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
 
-        // --- MENU PRODUTO ---
         mnProduto = new JMenu("Produtos");
         mnProduto.addMouseListener(new MouseAdapter() {
             @Override
@@ -83,32 +78,30 @@ public class TelaPrincipal {
         });
         menuBar.add(mnProduto);
 
-        // --- MENU CLIENTE ---
         mnCliente = new JMenu("Clientes");
         mnCliente.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new TelaCliente(); // Agora está destravado e acionando a tela correta!
+                new TelaCliente();
             }
         });
         menuBar.add(mnCliente);
 
-        // --- MENU PEDIDO ---
         mnPedido = new JMenu("Pedidos");
         mnPedido.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new TelaPedido(); // Agora está destravado e acionando a tela correta!
+                new TelaPedido();
             }
         });
         menuBar.add(mnPedido);
 
-        // --- MENU CONSULTA ---
-        mnConsulta = new JMenu("Consultas Relatórios");
+        // NOME ALTERADO PARA APENAS "Consultas"
+        mnConsulta = new JMenu("Consultas");
         mnConsulta.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new TelaConsulta(); // Aba adicionada fisicamente à barra principal!
+                new TelaConsulta();
             }
         });
         menuBar.add(mnConsulta);

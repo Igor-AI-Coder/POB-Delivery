@@ -110,4 +110,15 @@ public class FachadaCliente {
         }
         return repoCliente.buscarPorEndereco(textoBusca);
     }
+
+    // --- NOVA PARTE DO CÓDIGO ADICIONADA ABAIXO ---
+    
+    // Consulta JPQL extra baseada na Etapa 2
+    public List<Cliente> consultarClientesMaisDe2Pizzas() throws Exception {
+        try {
+            return repoCliente.buscarClientesMaisDe2PedidosDePizza();
+        } catch (Exception e) {
+            throw new Exception("Erro ao consultar clientes (Pizzas): " + e.getMessage());
+        }
+    }
 }
