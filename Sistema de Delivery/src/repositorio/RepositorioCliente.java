@@ -55,17 +55,20 @@ public class RepositorioCliente extends Repositorio<Cliente> {
         return q.getResultList();
     }
 
-    // --- NOVA PARTE DO CÓDIGO ADICIONADA ABAIXO ---
-
     /**
-     * Consulta 3: Quais os clientes que tem mais de 2 pedidos do produto 'Pizza'
+     * Consulta 3 Dinâmica: Quais os clientes que tem mais de X pedidos de um produto Y
      */
-    public List<Cliente> buscarClientesMaisDe2PedidosDePizza() {
+    public List<Cliente> buscarClientesPorProdutoEQuantidade(String nomeProduto, int quantidade) {
         TypedQuery<Cliente> q = Util.getManager().createQuery(
             "select c from Cliente c JOIN c.pedidos p JOIN p.produtos prod " +
-            "where prod.nome = 'Pizza' " +
+            "where prod.nome = :nomeProd " +
             "GROUP BY c " +
-            "HAVING count(p) > 2", Cliente.class);
+            "HAVING count(p) > :qtd", Cliente.class);
+        
+        // Passando os parâmetros dinâmicos digitados pelo usuário
+        q.setParameter("nomeProd", nomeProduto);
+        q.setParameter("qtd", (long) quantidade); // O count() no JPQL retorna Long, por isso fazemos o cast (long)
+        
         return q.getResultList();
     }
 }

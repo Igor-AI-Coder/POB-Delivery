@@ -111,14 +111,19 @@ public class FachadaCliente {
         return repoCliente.buscarPorEndereco(textoBusca);
     }
 
-    // --- NOVA PARTE DO CÓDIGO ADICIONADA ABAIXO ---
-    
-    // Consulta JPQL extra baseada na Etapa 2
-    public List<Cliente> consultarClientesMaisDe2Pizzas() throws Exception {
+    // Consulta JPQL extra baseada na Etapa 2 (Agora Dinâmica)
+    public List<Cliente> consultarClientesPorProdutoEQuantidade(String nomeProduto, int quantidade) throws Exception {
+        if (nomeProduto == null || nomeProduto.trim().isEmpty()) {
+            throw new Exception("Informe o nome do produto para a consulta.");
+        }
+        if (quantidade < 0) {
+            throw new Exception("A quantidade de pedidos deve ser zero ou positiva.");
+        }
+        
         try {
-            return repoCliente.buscarClientesMaisDe2PedidosDePizza();
+            return repoCliente.buscarClientesPorProdutoEQuantidade(nomeProduto, quantidade);
         } catch (Exception e) {
-            throw new Exception("Erro ao consultar clientes (Pizzas): " + e.getMessage());
+            throw new Exception("Erro ao consultar clientes por produto/quantidade: " + e.getMessage());
         }
     }
 }
